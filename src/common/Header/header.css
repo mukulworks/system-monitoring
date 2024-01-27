@@ -2,9 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: purple;
+  color: #000c77;
   padding: 10px 20px;
-  padding-left: 16%;
+  /* padding-left: 16%; */
 }
 
 .dashboard h1 {
@@ -15,7 +15,7 @@
 .account {
   display: block;
   align-items: center;
-  padding-left: 70%;
+  padding-left: 90%;
 }
 
 .account h4 {
@@ -39,6 +39,6 @@
   display: block;
   justify-content: space-between;
   align-items: center;
-  color: purple;
-  padding-left: 16%;
+  color: #000c77;
+  /* padding-left: 16%; */
 }

@@ -20,10 +20,8 @@ const Menu = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.post(api_url, api_parameters, { headers: api_header });
-                console.log(response, "response", response?.data?.result?.getDashboardMenuList, "gg")
                 const data = response?.data?.result?.getDashboardMenuList
                 setObjectGroup(data);
-                console.log("objectGroup", objectGroup)
 
             } catch (error) { }
         };

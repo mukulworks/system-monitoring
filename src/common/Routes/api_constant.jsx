@@ -6,3 +6,5 @@ export const API_HEADER = {
 };
 
 export const GetDashboardMenu = `${API_URL}/GetDashboardMenu`;
+
+export const GetDashboardObject = `${API_URL}/GetDashboardObject`;
