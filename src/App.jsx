@@ -3,6 +3,8 @@ import Sidebar from "./common/Side Bar/sidebar";
 import Header from "./common/Header/Header";
 import Toogle from "./common/Toggle/Toggle";
 import Circleobject from "./objects/Circles/circleobject";
+import Boxobject from "./objects/Boxes/boxobject";
+import Cardobject from "./objects/Cards/cardoject";
 import ".//app.css";
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         </div>
         <div className="circleobject">
           <Circleobject />
+          {/* <Boxobject /> */}
+          {/* <Cardobject /> */}
         </div>
       </div>
 

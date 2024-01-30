@@ -13,7 +13,7 @@ const api_parameters = {
     CompanyId: "ORBIT",
     UserId: "SUPERVISOR",
     CompanyAccessprofile: "CDB_ADMIN",
-    ObjectGroup: "wholesale",
+    ObjectGroup: "crm",
 };
 
 const formatDuration = (duration) => {
@@ -49,17 +49,17 @@ const Circleobject = () => {
         return {
             BrandCode: "ISUZU",
             CountryCode: "IN",
-            ObjectGroup: "Wholesale",
+            ObjectGroup: "crm",
             QueryName: objectQuery,
             OBJECTID: objectId
         }
     };
     useEffect(() => {
         object.flatMap(item => (
-            item.objectTypeList.flatMap(item1 => (
-                item1.objectDescList.flatMap((item2, index) => (
+            item.objectTypeList.flatMap((item1, index) => (
+                item1.objectDescList.flatMap((item2, index2) => (
                     item2.dashboardObjectList.map(item3 => (
-                        fetchData(index, item3.objectId, item3.objectQuery)
+                        fetchData(index, index2, item3.objectId, item3.objectQuery)
                     ))
                 ))
             ))
@@ -67,17 +67,18 @@ const Circleobject = () => {
 
     }, [countApiCall]);
 
-    const fetchData = (index, objectId, objectQuery) => {
+    const fetchData = (index, index2, objectId, objectQuery) => {
         try {
             const count = axios.post(api_query, query_parameters(objectId, objectQuery), { headers: api_header });
             Promise.all([count])
                 .then((results) => {
                     const countdata = results[0]?.data?.result?.[0]?.count;
                     let temp = [...object];
-                    let tempObj = { ...temp[0]?.objectTypeList[0]?.objectDescList[index] };
+                    let tempObj = { ...temp[0]?.objectTypeList[index]?.objectDescList[index2] };
                     tempObj.objectGroupShortDescName = countdata;
-                    temp[0]?.objectTypeList[0]?.objectDescList.splice(index, 1, tempObj);
+                    temp[0]?.objectTypeList[index]?.objectDescList.splice(index2, 1, tempObj);
                     setObject(temp);
+                    console.log("object -", object)
                 })
         } catch (error) {
             console.log("error-", error)
@@ -89,12 +90,11 @@ const Circleobject = () => {
             {object.map((item) => (
                 <div className='background'>
                     <div class="objgrpname">{item.objectGroupDescName}</div>
-                    {item.objectTypeList.map((item1) => (
+                    {item.objectTypeList.map((item1, index) => (
                         <>
                             <div class="typename">{item1.objectTypeName}</div>
                             <hr></hr>
                             {item1.objectDescList.map((item2) => (
-                                console.log(item2?.refreshIntervals, "item2"),
                                 <>
                                     <div class="flex-container">
                                         <div class="container">
