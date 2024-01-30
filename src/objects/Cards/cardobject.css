@@ -28,10 +28,10 @@
   width: 100%;
   /* border: solid 1px #000c77; */
 }
-.circle {
+.card {
   width: 100px;
   height: 100px;
-  border-radius: 50%;
+  border-radius: 1%;
   /* background-color: #ecf0f1; */
   background-image: url("public/Assets/Circle Background.png");
   background-size: cover;
@@ -42,7 +42,7 @@
   justify-content: center;
   text-align: center;
 }
-.circle:hover {
+.card:hover {
   box-shadow: 5px 5px 5px rgba(80, 94, 216, 0.39);
 }
 

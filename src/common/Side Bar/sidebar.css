@@ -1,12 +1,12 @@
 /* Sidebar styles */
 .sidebar {
   height: 100%;
-  width: 16%;
+  width: 220px;
   position: fixed;
   top: 10px;
   left: 0;
   background-image: url("public/images/Side Menue.png");
-  background-size: auto;
+  background-size: cover;
   padding-top: 20px;
   border-top-right-radius: 30px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.399);

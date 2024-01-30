@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { GetDashboardObject, GetObjectGroupQuery, API_HEADER } from "../../common/Routes/api_constant.jsx";
-import "./circleobject.css";
+import "./cardobject.css";
 
 
 const api_url = GetDashboardObject;
@@ -29,7 +29,7 @@ const formatDuration = (duration) => {
 };
 
 
-const Circleobject = () => {
+const Cardobject = () => {
     const [object, setObject] = useState([]);
     const [countApiCall, setCountApiCall] = useState(false);
     useEffect(() => {
@@ -80,7 +80,6 @@ const Circleobject = () => {
                     setObject(temp);
                 })
         } catch (error) {
-            console.log("error-", error)
         }
     };
 
@@ -98,7 +97,7 @@ const Circleobject = () => {
                                 <>
                                     <div class="flex-container">
                                         <div class="container">
-                                            <div class="circle">
+                                            <div class="card">
                                                 <div class="interval">{formatDuration(item2.refreshIntervals)}</div>
                                                 <div class="count">{item2?.objectGroupShortDescName != undefined ? item2?.objectGroupShortDescName : 0}</div>
                                             </div>
@@ -117,4 +116,4 @@ const Circleobject = () => {
     );
 }
 
-export default Circleobject;
+export default Cardobject;
