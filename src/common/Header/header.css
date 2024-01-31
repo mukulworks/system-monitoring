@@ -43,12 +43,12 @@
   /* padding-left: 16%; */
 }
 
-
-
 .des_tx {
   display: -webkit-box;
 }
-.des_tx h1{font-size: 30px;}
+.des_tx h1 {
+  font-size: 30px;
+}
 
 .user_nm {
   text-align: right;
@@ -63,9 +63,9 @@
   margin-top: 11px;
 }
 
-  .user_nm span {
-    font-size: 13px;
-    color: #333;
+.user_nm span {
+  font-size: 13px;
+  color: #333;
 }
 
 .user_nm_pic {
@@ -77,7 +77,10 @@
   margin-top: 8px;
 }
 
-.system_tx{ width: 100%; float: left;}
+.system_tx {
+  width: 100%;
+  float: left;
+}
 
 .system_tx h4 {
   font-size: 30px;
@@ -98,62 +101,75 @@
   display: inline-flex;
 }
 
-.bder_pos{ width: 100%; float right:; text-align: right;}
+.bder_pos {
+  width: 100%;
+  float: right;
+  text-align: right;
+}
 
 .bder_pos img {
   width: 70px;
 }
-
 
 .top_icon {
   text-align: right;
   width: 75%;
   float: left;
 }
-.top_icon ul{margin-top: 4px;}
+.top_icon ul {
+  margin-top: 4px;
+}
 .top_icon ul li {
   list-style: none;
   display: inline-block;
   margin: 0 0 0 12px;
 }
-.top_icon ul li a{}
-.top_icon ul li img{width: 22px;}
 
-.icon_pdg1{padding-left: 42px;}
+.top_icon ul li img {
+  width: 22px;
+}
 
+.icon_pdg1 {
+  padding-left: 42px;
+}
 
 /* New tabs */
 
-.sidebar-tabs{ transform:translateX(98%); 
-  transition: transform .5s cubic-bezier(.165,.84,.44,1);}
+.sidebar-tabs {
+  transform: translateX(98%);
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
 
-.sidebar-tabs.active{ position: relative; width: 100%;
+.sidebar-tabs.active {
+  position: relative;
+  width: 100%;
   top: 0;
   right: 0;
-  transform: none;}
+  transform: none;
+}
 
-  /* .sidebar-tabs.active #sidebar-click{ display: none;} */
+/* .sidebar-tabs.active #sidebar-click{ display: none;} */
 
-.sidebar-tabs-data{ flex:1;}
+.sidebar-tabs-data {
+  flex: 1;
+}
 
 /* body{  overflow: hidden
   ;} */
 
+.lin4 {
+  width: 95%;
+}
 
-
-  .lin4{width: 95%;}
-
-  .star1 {
-    float: right;
+.star1 {
+  float: right;
 }
 .star1 img {
   width: 22px;
   vertical-align: inherit;
   margin-right: 10px;
 }
-
-.star1 img a{}
-.star1 .active{ color: #fff; background-color: #000c77;}
-
-
-
+.star1 .active {
+  color: #fff;
+  background-color: #000c77;
+}
