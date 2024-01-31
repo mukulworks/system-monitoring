@@ -1,6 +1,7 @@
 import "./sidebar.css";
 import Select from 'react-select';
-import Menu from "./menu";
+import Menu from "./Menu";
+import React, { useState } from 'react';
 
 const dropdown = {
     control: (provided) => ({
@@ -52,11 +53,16 @@ const options = [
     { value: 'option2', label: 'BENELLI' },
     { value: 'option3', label: 'MOTOV' }
 ];
-const Sidebar = () => {
-    const handleSelectChange = (selectedOption) => {
-        const select = selectedOption.label
-    };
 
+const Sidebar = () => {
+    const [brand, setBrand] = useState("");
+    const handleSelectChange = (selectedOption) => {
+        const select = selectedOption.label;
+        setBrand(select)
+        localStorage.setItem("brand", JSON.stringify(select));
+
+    };
+    console.log("brand", brand)
     return (
         <>
             <div className='sidebar'>
@@ -66,7 +72,7 @@ const Sidebar = () => {
                     styles={dropdown}
                     onChange={handleSelectChange}
                 />
-                <Menu />
+                <Menu brand={brand} />
             </div>
 
         </>

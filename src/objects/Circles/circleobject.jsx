@@ -3,12 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { GetDashboardObject, GetObjectGroupQuery, API_HEADER } from "../../common/Routes/api_constant.jsx";
 import "./circleobject.css";
 
+const Props = localStorage.getItem("brand");
+const brand = JSON.parse(Props);
 
 const api_url = GetDashboardObject;
 const api_query = GetObjectGroupQuery;
 const api_header = API_HEADER;
 const api_parameters = {
-    BrandCode: "ISUZU",
+    BrandCode: brand,
     CountryCode: "IN",
     CompanyId: "ORBIT",
     UserId: "SUPERVISOR",
@@ -47,7 +49,7 @@ const Circleobject = () => {
 
     const query_parameters = (objectId, objectQuery) => {
         return {
-            BrandCode: "ISUZU",
+            BrandCode: brand,
             CountryCode: "IN",
             ObjectGroup: "crm",
             QueryName: objectQuery,
@@ -78,10 +80,8 @@ const Circleobject = () => {
                     tempObj.objectGroupShortDescName = countdata;
                     temp[0]?.objectTypeList[index]?.objectDescList.splice(index2, 1, tempObj);
                     setObject(temp);
-                    console.log("object -", object)
                 })
         } catch (error) {
-            console.log("error-", error)
         }
     };
 
