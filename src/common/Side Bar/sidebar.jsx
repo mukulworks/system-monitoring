@@ -53,9 +53,6 @@ const options = [
     { value: 'option3', label: 'MOTOV' }
 ];
 const Sidebar = () => {
-    const handleSelectChange = (selectedOption) => {
-        const select = selectedOption.label
-    };
 
     return (
         <>
@@ -64,7 +61,6 @@ const Sidebar = () => {
                     options={options}
                     placeholder="Select..."
                     styles={dropdown}
-                    onChange={handleSelectChange}
                 />
                 <Menu />
             </div>

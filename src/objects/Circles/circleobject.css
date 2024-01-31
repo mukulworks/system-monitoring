@@ -14,19 +14,19 @@
   margin-bottom: -17px;
   margin-left: 4px;
   font-weight: 450;
+  width: 95%;
 }
 
 .flex-container {
   display: inline-flex !important;
   margin: 10px;
-  padding: 20px;
-  /* border: solid 1px #000c77; */
+  padding: 20px 0;
+  width: 10%;
 }
 .container {
   display: block;
   height: 100%;
   width: 100%;
-  /* border: solid 1px #000c77; */
 }
 .circle {
   width: 100px;
@@ -61,5 +61,5 @@
   color: #000c77;
   font-size: 11px;
   text-align: center;
-  width: 100px;
+  margin-top: 5px;
 }
