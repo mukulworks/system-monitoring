@@ -10,7 +10,7 @@ const api_url = GetDashboardObject;
 const api_query = GetObjectGroupQuery;
 const api_header = API_HEADER;
 const api_parameters = {
-    BrandCode: brand,
+    BrandCode: "ISUZU",
     CountryCode: "IN",
     CompanyId: "ORBIT",
     UserId: "SUPERVISOR",
@@ -49,7 +49,7 @@ const Circleobject = () => {
 
     const query_parameters = (objectId, objectQuery) => {
         return {
-            BrandCode: brand,
+            BrandCode: "ISUZU",
             CountryCode: "IN",
             ObjectGroup: "crm",
             QueryName: objectQuery,

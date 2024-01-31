@@ -55,14 +55,10 @@ const options = [
 ];
 
 const Sidebar = () => {
-    const [brand, setBrand] = useState("");
     const handleSelectChange = (selectedOption) => {
-        const select = selectedOption.label;
-        setBrand(select)
-        localStorage.setItem("brand", JSON.stringify(select));
-
+        const select = selectedOption.label
     };
-    console.log("brand", brand)
+
     return (
         <>
             <div className='sidebar'>
@@ -70,7 +66,6 @@ const Sidebar = () => {
                     options={options}
                     placeholder="Select..."
                     styles={dropdown}
-                    onChange={handleSelectChange}
                 />
                 <Menu brand={brand} />
             </div>

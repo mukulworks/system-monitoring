@@ -1,11 +1,14 @@
 /* Sidebar styles */
 .sidebar {
   height: 100%;
-  width: 220px;
+  width: 250px !important;
   position: fixed;
   top: 10px;
   left: 0;
-  background-image: url("public/images/Side Menue.png");
+  background: url("public/images/Side Menue.png") left top no-repeat;
+
+
+
   background-size: cover;
   padding-top: 20px;
   border-top-right-radius: 30px;
@@ -23,3 +26,5 @@
   margin-bottom: 8%;
   cursor: pointer;
 }
+
+
