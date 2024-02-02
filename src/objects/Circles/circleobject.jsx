@@ -7,20 +7,11 @@ import {
 } from "../../common/Routes/api_constant.jsx";
 import "./circleobject.css";
 
-const Props = localStorage.getItem("brand");
-const brand = JSON.parse(Props);
 
 const api_url = GetDashboardObject;
 const api_query = GetObjectGroupQuery;
 const api_header = API_HEADER;
-const api_parameters = {
-    BrandCode: "ISUZU",
-    CountryCode: "IN",
-    CompanyId: "ORBIT",
-    UserId: "SUPERVISOR",
-    CompanyAccessprofile: "CDB_ADMIN",
-    ObjectGroup: "crm",
-};
+
 
 const formatDuration = (duration) => {
     const minutes = Math.floor(duration / 60);
@@ -35,9 +26,20 @@ const formatDuration = (duration) => {
     }
 };
 
-const Circleobject = () => {
+const Circleobject = ({ brandcode, selectedObjectGroup }) => {
+    const api_parameters = {
+        BrandCode: brandcode,
+        CountryCode: "IN",
+        CompanyId: "ORBIT",
+        UserId: "SUPERVISOR",
+        CompanyAccessprofile: "CDB_ADMIN",
+        ObjectGroup: selectedObjectGroup,
+    };
     const [object, setObject] = useState([]);
-    const [countApiCall, setCountApiCall] = useState(false);
+    const [brandcodeState, setBrandcodeState] = useState();
+    const [selectedObjectGroupState, setSelectedObjectGroupState] = useState();
+
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -46,35 +48,39 @@ const Circleobject = () => {
                 });
                 const data = response?.data?.result?.objectGroupDescList;
                 setObject(data);
-                setCountApiCall(true);
+                setBrandcodeState(brandcode);
+                setSelectedObjectGroupState(selectedObjectGroup);
             } catch (error) { }
         };
 
         fetchData();
-    }, []);
+    }, [brandcode, selectedObjectGroup]);
 
     const query_parameters = (objectId, objectQuery) => {
-        return {
-            BrandCode: "ISUZU",
+        const parameters = {
+            BrandCode: brandcode,
             CountryCode: "IN",
-            ObjectGroup: "crm",
+            ObjectGroup: selectedObjectGroup,
             QueryName: objectQuery,
             OBJECTID: objectId,
         };
+        return parameters;
     };
     useEffect(() => {
         object.flatMap((item) =>
             item.objectTypeList.flatMap((item1, index) =>
                 item1.objectDescList.flatMap((item2, index2) =>
                     item2.dashboardObjectList.map((item3) =>
-                        fetchData(index, index2, item3.objectId, item3.objectQuery)
+                        fetchDatas(index, index2, item3.objectId, item3.objectQuery)
                     )
                 )
             )
         );
-    }, [countApiCall]);
 
-    const fetchData = (index, index2, objectId, objectQuery) => {
+
+    }, [brandcodeState, selectedObjectGroupState]);
+
+    const fetchDatas = (index, index2, objectId, objectQuery) => {
         try {
             const count = axios.post(
                 api_query,
