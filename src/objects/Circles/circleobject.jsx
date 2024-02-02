@@ -105,8 +105,9 @@ const Circleobject = () => {
                     <div class="objgrpname">{item.objectGroupDescName}</div>
                     {item.objectTypeList.map((item1, index) => (
                         <>
-                            <div class="typename">{item1.objectTypeName}</div>
-                            <hr></hr>
+                            <div class="typename">{item1.objectTypeName}<span class="star1"><a href="">
+                                <img src="public/images/Icon-awesome-stroke-star.png" alt=""></img></a></span></div>
+                            <hr className="lin4"></hr>
                             {item1.objectDescList.map((item2) => (
                                 <>
                                     <div class="flex-container">

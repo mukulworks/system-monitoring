@@ -18,8 +18,8 @@ function App() {
           <Header />
         </div>
         <div className="circleobject">
-          <Circleobject />
-          {/* <Boxobject /> */}
+          {/* <Circleobject /> */}
+          <Boxobject />
           {/* <Cardobject /> */}
 
         </div>

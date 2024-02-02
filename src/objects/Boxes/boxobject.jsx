@@ -84,6 +84,7 @@ const Boxobject = () => {
             console.log("error-", error)
         }
     };
+
     return (
         <>
             {object.map((item) => (
@@ -91,22 +92,41 @@ const Boxobject = () => {
                     <div class="objgrpname">{item.objectGroupDescName}</div>
                     {item.objectTypeList.map((item1) => (
                         <>
-                            <div class="typename">{item1.objectTypeName}</div>
-                            <hr></hr>
+                            <div class="typename">{item1.objectTypeName}<span class="star1"><a href=""><img src="public/images/Icon-awesome-stroke-star.png" alt=""></img>
+    </a></span></div>
+                            <hr className='lin4'></hr>
+
+
+
+
+
+
+                            <div className='clr_wd'>
+                                <div className='bac_clr'>
+                                    <div className='box_lin'>
                             {item1.objectDescList.map((item2) => (
-                                <>
-                                    <div class="flex-container">
-                                        <div class="container">
-                                            <div class="box">
-                                                <div class="interval">{formatDuration(item2.refreshIntervals)}</div>
-                                                <div class="count">{item2?.objectGroupShortDescName != undefined ? item2?.objectGroupShortDescName : 0}</div>
-                                            </div>
-                                            <div class="objectname">{item2.objectDescName}</div>
-                                        </div>
-                                    </div>
-                                </>
+                              
+                                    <ul>
+                                        <li>
+                                           
+                                                <span>{formatDuration(item2.refreshIntervals)}</span>
+                                                <div class="count_no">{item2?.objectGroupShortDescName != undefined ? item2?.objectGroupShortDescName : 0}</div>
+                                           
+                                            <p>{item2.objectDescName}</p>
+                                        </li>
+                                    </ul>
+                                   
+                              
+                               
 
                             ))}
+                            </div>
+                            </div>
+
+                            </div>
+
+
+
                         </>
                     ))}
 
@@ -115,5 +135,7 @@ const Boxobject = () => {
         </>
     );
 }
+
+ 
 
 export default Boxobject;

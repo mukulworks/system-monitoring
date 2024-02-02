@@ -4,7 +4,7 @@
   margin-bottom: 12px;
   margin-top: 12px;
   padding-left: 4px;
-  width: 95%;
+  width: 98%;
   border-radius: 6px;
   font-weight: 450;
 }
@@ -14,6 +14,7 @@
   margin-bottom: -17px;
   margin-left: 4px;
   font-weight: 450;
+  width: 98%;
 }
 
 .flex-container {
@@ -62,4 +63,72 @@
   font-size: 11px;
   text-align: center;
   width: 100px;
+}
+
+.bac_clr {
+  border-radius: 15px;
+  box-shadow: 0 5px 15px #00000059;
+  padding: 9px 0 9px 0;
+  width: fit-content;
+  margin: 0 55px 0 0;
+  margin-bottom: 10px;
+  text-align: center;
+  background: #fff;
+}
+
+.bac_clr:hover{box-shadow: 5px 5px 5px rgba(80, 94, 216, 0.39);}
+
+
+.box_lin{ }
+.box_lin ul {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+}
+
+
+
+
+
+
+
+.box_lin ul li {
+  list-style: none;
+  background-image: url("public/Assets/Circle Background.png");
+  background-repeat: no-repeat;
+  background-size: 48%;
+  margin-bottom: 40px;
+  background-position: 57% 80%;
+  padding: 0 10px 0px 10px;
+  border-right: solid 2px #d6d0f5;
+  width: 140px;
+}
+
+
+/* .box_lin ul li:last-child {
+  border: none;
+} */
+
+.box_lin ul li p {
+  font-size: 11px;
+  text-align: center;
+  line-height: 15px;
+  margin-top: 7px;
+  width: 100%;
+  float: left;
+}
+
+.box_lin ul li span {
+  text-align: right;
+  width: 100%;
+  display: inline-block;
+  font-size: 12px;
+}
+
+.count_no{ text-align: center; font-size: 35px; color: #000c77;}
+
+.clr_wd{ }
+
+.lin4 {
+  width: 98%;
 }
