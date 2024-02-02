@@ -59,10 +59,8 @@ const Sidebar = () => {
     const handleSelectChange = (selectedOption) => {
         const select = selectedOption.label;
         setBrand(select)
-        localStorage.setItem("brand", JSON.stringify(select));
 
     };
-    console.log("brand", brand)
     return (
         <>
             <div className='sidebar'>

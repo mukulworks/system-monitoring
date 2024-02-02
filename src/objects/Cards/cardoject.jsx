@@ -7,14 +7,7 @@ import "./cardobject.css";
 const api_url = GetDashboardObject;
 const api_query = GetObjectGroupQuery;
 const api_header = API_HEADER;
-const api_parameters = {
-    BrandCode: "ISUZU",
-    CountryCode: "IN",
-    CompanyId: "ORBIT",
-    UserId: "SUPERVISOR",
-    CompanyAccessprofile: "CDB_ADMIN",
-    ObjectGroup: "crm",
-};
+
 
 const formatDuration = (duration) => {
     const minutes = Math.floor(duration / 60);
@@ -29,27 +22,38 @@ const formatDuration = (duration) => {
 };
 
 
-const Cardobject = () => {
+const Cardobject = ({ brandcode, selectedObjectGroup }) => {
+    const api_parameters = {
+        BrandCode: brandcode,
+        CountryCode: "IN",
+        CompanyId: "ORBIT",
+        UserId: "SUPERVISOR",
+        CompanyAccessprofile: "CDB_ADMIN",
+        ObjectGroup: selectedObjectGroup,
+    };
     const [object, setObject] = useState([]);
-    const [countApiCall, setCountApiCall] = useState(false);
+    const [brandcodeState, setBrandcodeState] = useState();
+    const [selectedObjectGroupState, setSelectedObjectGroupState] = useState();
+
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.post(api_url, api_parameters, { headers: api_header });
                 const data = response?.data?.result?.objectGroupDescList
                 setObject(data);
-                setCountApiCall(true)
+                setBrandcodeState(brandcode);
+                setSelectedObjectGroupState(selectedObjectGroup);
             } catch (error) { }
         };
 
         fetchData();
-    }, []);
+    }, [brandcode, selectedObjectGroup]);
 
     const query_parameters = (objectId, objectQuery) => {
         return {
-            BrandCode: "ISUZU",
+            BrandCode: brandcode,
             CountryCode: "IN",
-            ObjectGroup: "crm",
+            ObjectGroup: selectedObjectGroup,
             QueryName: objectQuery,
             OBJECTID: objectId
         }
@@ -65,7 +69,7 @@ const Cardobject = () => {
             ))
         ));
 
-    }, [countApiCall]);
+    }, [brandcodeState, selectedObjectGroupState]);
 
     const fetchData = (index, index2, objectId, objectQuery) => {
         try {
@@ -78,10 +82,8 @@ const Cardobject = () => {
                     tempObj.objectGroupShortDescName = countdata;
                     temp[0]?.objectTypeList[index]?.objectDescList.splice(index2, 1, tempObj);
                     setObject(temp);
-                    console.log("object -", object)
                 })
         } catch (error) {
-            console.log("error-", error)
         }
     };
 

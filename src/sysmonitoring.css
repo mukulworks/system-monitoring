@@ -1,0 +1,14 @@
+.con {
+  width: 100%;
+  float: left;
+}
+.sidebar {
+  width: 16%;
+}
+.content {
+  display: block;
+  width: 100%;
+  float: right;
+  padding-left: 278px;
+  overflow: hidden;
+}

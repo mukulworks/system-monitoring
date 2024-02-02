@@ -3,13 +3,20 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import "./header.css";
 import { PROFILE_URL } from "../Routes/constant";
-
+import Objectgroup from "../../objects/Objectgroup";
 const Header = () => {
     const [isToggleOn, setIsToggleOn] = useState(false);
 
     const handleToggle = () => {
         setIsToggleOn(!isToggleOn);
     };
+
+    const handleCircleViewClick = () => {
+        // Call Objectgroup component or perform any action you need
+        console.log("Circle View clicked");
+        <Objectgroup />
+    };
+
     return (
         <>
 
@@ -20,13 +27,13 @@ const Header = () => {
 
                         <div className="top_icon">
                             <ul>
-                                <li>
-                                    <a href="">
-                                        <img
-                                            src={`${PROFILE_URL}/Circle-View.png`}
-                                            alt="Circle View"
-                                        />
-                                    </a>
+                                <li onClick={handleCircleViewClick}>
+                                    {/* <a href=""> */}
+                                    <img
+                                        src={`${PROFILE_URL}/Circle-View.png`}
+                                        alt="Circle View"
+                                    />
+                                    {/* </a> */}
                                 </li>
                                 <li>
                                     <a href="">

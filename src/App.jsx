@@ -1,39 +1,53 @@
-import { useState } from "react";
-import Sidebar from "./common/Side Bar/Sidebar";
-import Header from "./common/Header/Header";
-import Toogle from "./common/Toggle/Toggle";
-import Circleobject from "./objects/Circles/Circleobject";
-import Boxobject from "./objects/Boxes/Boxobject";
-import Cardobject from "./objects/Cards/Cardoject";
-import Object from "./objects/object";
-import ".//app.css";
+import React from "react";
+import Sysmonitoring from "./Sysmonitoring";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link,
+  Navigate,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
+
 function App() {
   return (
-    <div className="con">
-      <div className="sidebar">
-        <Sidebar />
+    <>
+      <div>
+        <Sysmonitoring />
       </div>
-      <div className="content">
-        <div className="header">
-          <Header />
-        </div>
-        <div className="circleobject">
-          <Circleobject />
-          {/* <Boxobject /> */}
-          {/* <Cardobject /> */}
-
-        </div>
-      </div>
-
-
-      {/* <Toogle /> */}
-
-
-
-
-
-    </div>
+    </>
   );
 }
 
+
+// function App({ isLoggedIn }) {
+//   const location = useLocation();
+//   // const handleContextMenu = (event) => {
+//   //   event.preventDefault();
+//   //   console.log('Right-clicked on the block!');
+//   // };
+//   return (
+//     <>
+//       {
+//         location.pathname !== "/"
+//       }
+
+//       <Routes >
+//         <
+//           Route path="/"
+//           element={<Sysmonitoring />}
+//         />
+
+//       </Routes >
+
+//     </>
+//   );
+// }
+
+
+
 export default App;
+
+
+
