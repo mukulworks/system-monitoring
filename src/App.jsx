@@ -1,4 +1,5 @@
 import React from "react";
+import Sidebar from "./common/Side Bar/Sidebar";
 import Sysmonitoring from "./Sysmonitoring";
 import {
   BrowserRouter as Router,
@@ -14,7 +15,8 @@ function App() {
   return (
     <>
       <div>
-        <Sysmonitoring />
+        {/* <Sysmonitoring /> */}
+        <Sidebar />
       </div>
     </>
   );
@@ -36,7 +38,7 @@ function App() {
 //       <Routes >
 //         <
 //           Route path="/"
-//           element={<Sysmonitoring />}
+//           element={<Sidebar />}
 //         />
 
 //       </Routes >

@@ -7,8 +7,6 @@
   left: 0;
   background: url("public/images/Side Menue.png") left top no-repeat;
 
-
-
   background-size: cover;
   padding-top: 20px;
   border-top-right-radius: 30px;
@@ -27,4 +25,19 @@
   cursor: pointer;
 }
 
+.con {
+  width: 100%;
+  float: left;
+}
 
+.leftcon {
+  width: 16%;
+}
+
+.content {
+  display: block;
+  width: 100%;
+  float: right;
+  padding-left: 278px;
+  overflow: hidden;
+}

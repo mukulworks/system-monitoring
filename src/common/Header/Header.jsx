@@ -4,22 +4,22 @@ import Tabs from "react-bootstrap/Tabs";
 import "./header.css";
 import { PROFILE_URL } from "../Routes/constant";
 import Objectgroup from "../../objects/Objectgroup";
-const Header = () => {
+const Header = ({ brandcode, selectedObjectGroup }) => {
+    // console.log("Headerbrand", brandcode, "HeaderObjectGroup", selectedObjectGroup)
     const [isToggleOn, setIsToggleOn] = useState(false);
+
+    const [activeTab, setActiveTab] = useState("");
 
     const handleToggle = () => {
         setIsToggleOn(!isToggleOn);
     };
 
-    const handleCircleViewClick = () => {
-        // Call Objectgroup component or perform any action you need
-        console.log("Circle View clicked");
-        <Objectgroup />
+    const handleTabSelect = (tabKey) => {
+        setActiveTab(tabKey);
     };
 
     return (
         <>
-
             <div className="mn_hd">
                 <div className="col-md-8">
                     <div className="des_tx">
@@ -27,39 +27,40 @@ const Header = () => {
 
                         <div className="top_icon">
                             <ul>
-                                <li onClick={handleCircleViewClick}>
+                                <li>
                                     {/* <a href=""> */}
                                     <img
                                         src={`${PROFILE_URL}/Circle-View.png`}
                                         alt="Circle View"
+                                        onClick={() => handleTabSelect("circle")}
                                     />
                                     {/* </a> */}
                                 </li>
                                 <li>
-                                    <a href="">
-                                        <img
-                                            src={`${PROFILE_URL}/Long-Card-View.png`}
-                                            alt="Circle View"
-                                        />
-                                    </a>
+
+                                    <img
+                                        src={`${PROFILE_URL}/Long-Card-View.png`}
+                                        alt="Long-card View"
+                                        onClick={() => handleTabSelect("box")}
+                                    />
+
                                 </li>
 
                                 <li>
-                                    <a href="">
-                                        <img
-                                            src={`${PROFILE_URL}/Card-View.png`}
-                                            alt="Circle View"
-                                        />
-                                    </a>
+                                    <img
+                                        src={`${PROFILE_URL}/Card-View.png`}
+                                        alt="Card View"
+                                        onClick={() => handleTabSelect("card")} />
+
                                 </li>
 
                                 <li>
-                                    <a href="">
-                                        <img
-                                            src={`${PROFILE_URL}/Graph-View.png`}
-                                            alt="Circle View"
-                                        />
-                                    </a>
+
+                                    <img
+                                        src={`${PROFILE_URL}/Graph-View.png`}
+                                        alt="Circle View"
+                                    />
+
                                 </li>
 
                                 <li className="icon_pdg1">
@@ -133,6 +134,12 @@ const Header = () => {
                         </Tab>
                     </Tabs>
                 </div>
+            </div>
+
+            <div>
+                {(activeTab === "circle" || activeTab === "box" || activeTab === "card") && selectedObjectGroup && (
+                    <Objectgroup selectedObjectGroup={selectedObjectGroup} brandcode={brandcode} activeTab={activeTab} />
+                )}
             </div>
         </>
     );

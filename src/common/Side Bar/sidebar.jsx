@@ -2,7 +2,7 @@ import "./sidebar.css";
 import Select from 'react-select';
 import Menu from "./menu";
 import React, { useState } from 'react';
-
+import Header from "../Header/Header";
 const dropdown = {
     control: (provided) => ({
         ...provided,
@@ -59,21 +59,33 @@ const Sidebar = () => {
     const handleSelectChange = (selectedOption) => {
         const select = selectedOption.label;
         setBrand(select)
-
     };
-    return (
-        <>
-            <div className='sidebar'>
-                <Select
-                    options={options}
-                    placeholder="Select..."
-                    styles={dropdown}
-                    onChange={handleSelectChange}
-                />
-                <Menu brand={brand} />
-            </div>
+    const [data, setData] = useState(null);
 
-        </>
+    const handleDataChange = (newData) => {
+        setData(newData);
+    };
+
+    console.log("dataaaaaaaaaaa", data)
+    return (
+        <div className="con">
+            <div className="leftcon">
+                <div className='sidebar'>
+                    <Select
+                        options={options}
+                        placeholder="Select..."
+                        styles={dropdown}
+                        onChange={handleSelectChange}
+                    />
+                    <Menu brand={brand} onDataChange={handleDataChange} />
+                </div>
+            </div>
+            <div className="content">
+                <div className="header">
+                    <Header brandcode={brand} selectedObjectGroup={data} />
+                </div>
+            </div>
+        </div>
     );
 }
 
