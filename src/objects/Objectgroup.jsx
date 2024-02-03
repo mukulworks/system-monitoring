@@ -2,6 +2,7 @@ import React from "react";
 import Circleobject from "./Circles/Circleobject";
 import Boxobject from "./Boxes/Boxobject";
 import Cardobject from "./Cards/Cardoject";
+import Graph from "./Graph/Graph";
 
 const Objectgroup = ({ brandcode, selectedObjectGroup, activeTab }) => {
   let renderedComponent;
@@ -26,6 +27,10 @@ const Objectgroup = ({ brandcode, selectedObjectGroup, activeTab }) => {
         brandcode={brandcode}
         selectedObjectGroup={selectedObjectGroup}
       />
+    );
+  } else if (activeTab === "graph") {
+    renderedComponent = (
+      <Graph brandcode={brandcode} selectedObjectGroup={selectedObjectGroup} />
     );
   }
 

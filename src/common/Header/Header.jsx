@@ -53,6 +53,7 @@ const Header = ({ brandcode, selectedObjectGroup }) => {
                     <img
                       src={`${PROFILE_URL}/Graph-View.png`}
                       alt="Graph View"
+                      onClick={() => handleTabSelect("graph")}
                     />
                   </li>
 
@@ -130,7 +131,8 @@ const Header = ({ brandcode, selectedObjectGroup }) => {
       <div>
         {(activeTab === "circle" ||
           activeTab === "box" ||
-          activeTab === "card") &&
+          activeTab === "card" ||
+          activeTab === "graph") &&
           selectedObjectGroup && (
             <Objectgroup
               selectedObjectGroup={selectedObjectGroup}
