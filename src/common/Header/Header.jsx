@@ -96,6 +96,7 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
                     <img
                       src={`${PROFILE_URL}/Notification-Bell Icon.png`}
                       alt="notification bell"
+                      onClick={() => handleTabSelect("alert")}
                     />
                   </li>
                 </ul>
@@ -128,26 +129,23 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
       )}
 
       <div
-        className={`w-100 sidebar-tabs d-flex justify-content-center align-items-center ${
+        className={`tb_ht sidebar-tabs d-flex justify-content-center align-items-center ${
           isToggleOn ? "active" : ""
         }`}
       >
         <img
           id="sidebar-click"
-          className="me-2"
+          className="me-2 sid_click"
           src={`${PROFILE_URL}/side_icon.png`}
-          width={50}
-          height={50}
-          alt="user side_icon"
           onClick={(e) => {
             e.stopPropagation();
             handleToggle();
           }}
         />
-        <div className="sidebar-tabs-data">
+        <div className="sidebar-tabs-data tb_bdr">
           <Tabs
             id="fill-tab-example"
-            className="mb-3"
+            className=""
             fill
             onSelect={handleTogglebutton}
             onClick={(e) => {
@@ -173,7 +171,8 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
           activeTab === "box" ||
           activeTab === "card" ||
           activeTab === "graph" ||
-          activeTab === "fav") &&
+          activeTab === "fav" ||
+          activeTab === "alert") &&
           selectedObjectGroup && (
             <Objectgroup
               selectedObjectGroup={selectedObjectGroup}

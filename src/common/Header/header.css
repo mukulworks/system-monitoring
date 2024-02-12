@@ -136,7 +136,7 @@
 /* New tabs */
 
 .sidebar-tabs {
-  transform: translateX(98%);
+  transform: translateX(105%);
   transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
@@ -172,4 +172,68 @@
 .star1 .active {
   color: #fff;
   background-color: #000c77;
+}
+
+.tb_ht {
+  height: 0;
+  padding: 0 0 20px 0;
+  width: 84% !important;
+  margin: 0 auto;
+}
+
+.tb_bdr {
+  border-radius: 35px;
+  border: solid 1px #505ed8;
+  padding: 0;
+  margin: 0px;
+  box-shadow: 5px 5px 5px rgba(80, 94, 216, 0.14);
+  background: #fff;
+}
+
+.nav-fill .nav-item .nav-link,
+.nav-justified .nav-item .nav-link {
+  width: 100%;
+  border: none;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  color: #fff !important;
+  background-color: #7286d3 !important;
+  border: none;
+  border-radius: 35px;
+  margin: 1px;
+  height: 99%;
+}
+
+.tb_bdr ul {
+  border-radius: 35px;
+}
+.tb_bdr ul li {
+  border-radius: 35px;
+}
+.tb_bdr ul li a {
+  color: #000;
+}
+
+.nv_tx1 {
+  color: #000 !important;
+}
+
+.nav-fill .nav-item .nav-link,
+.nav-justified .nav-item .nav-link {
+  width: 100%;
+  color: #000c77;
+  font-weight: 600;
+}
+
+.nav-fill .nav-item .nav-link,
+.nav-justified .nav-item .nav-link {
+  width: 100%;
+  border-radius: 35px;
+}
+
+.sid_click {
+  width: 65px;
+  height: 65px;
 }
