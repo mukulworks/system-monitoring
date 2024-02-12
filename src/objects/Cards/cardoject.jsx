@@ -102,27 +102,38 @@ const Cardobject = ({ brandcode, selectedObjectGroup }) => {
     <>
       {object.map((item) => (
         <div className="background">
-          <div class="objgrpname">{item.objectGroupDescName}</div>
+          <div className="objgrpname">{item.objectGroupDescName}</div>
           {item.objectTypeList.map((item1) => (
             <>
-              <div class="typename">{item1.objectTypeName}</div>
-              <hr></hr>
+              <div className="typename">
+                {item1.objectTypeName}
+
+                <span className="star1">
+                  <a href="">
+                    <img
+                      src="public/images/Icon-awesome-stroke-star.png"
+                      alt=""
+                    ></img>
+                  </a>
+                </span>
+              </div>
+              <hr className="lin4"></hr>
               {item1.objectDescList.map((item2) => (
                 <>
-                  <div class="flex-container">
-                    <div class="container">
-                      <div class="card">
-                        <div class="interval">
-                          {formatDuration(item2.refreshIntervals)}
-                        </div>
-                        <div class="count">
+                  <div className="vpo_box1">
+                    <ul>
+                      <li>
+                        <div className="heading1">{item2.objectDescName}</div>
+
+                        <p>{formatDuration(item2.refreshIntervals)}</p>
+
+                        <span>
                           {item2?.objectGroupShortDescName != undefined
                             ? item2?.objectGroupShortDescName
                             : 0}
-                        </div>
-                      </div>
-                      <div class="objectname">{item2.objectDescName}</div>
-                    </div>
+                        </span>
+                      </li>
+                    </ul>
                   </div>
                 </>
               ))}

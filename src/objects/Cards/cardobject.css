@@ -63,3 +63,55 @@
   text-align: center;
   width: 100px;
 }
+
+/* vpo_css */
+
+.vpo_box1 {
+  display: inline;
+}
+.vpo_box1 ul {
+  padding: 0;
+  margin: 0px;
+  display: inline-flex;
+}
+
+.vpo_box1 ul li {
+  position: relative;
+  list-style: none;
+  display: inline-block;
+  width: 147px;
+  box-shadow: 2px 2px 2px 2px rgba(80, 94, 216, 0.14);
+  border-radius: 5px;
+  margin: 0 20px 25px 0px;
+  padding: 5px 5px;
+  background-image: url("public/images/bg1.png");
+  background-size: cover;
+  min-height: 85px;
+}
+
+.vpo_box1 ul li:hover {
+  box-shadow: 2px 2px 2px 2px rgba(80, 94, 216, 0.3);
+}
+
+.vpo_box1 ul li img {
+}
+
+.heading1 {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.vpo_box1 ul li p {
+  position: absolute;
+  bottom: -9px;
+  font-size: 11px;
+}
+
+.vpo_box1 ul li span {
+  float: right;
+  font-size: 36px;
+  position: absolute;
+  top: 22px;
+  right: 13px;
+  font-weight: 400;
+}
