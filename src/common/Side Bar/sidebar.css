@@ -17,13 +17,19 @@
 .objectGroup-ul {
   list-style: none;
   margin-top: 30%;
+  padding: 0px 18px 0 25px;
 }
 
 .objectGroup-li {
   color: white;
   margin-bottom: 8%;
   cursor: pointer;
+  border-radius: 35px;
+  padding: 1px 14px;
 }
+
+.objectGroup-li:hover{ background: #8fa2e9;}
+
 
 .con {
   width: 100%;
