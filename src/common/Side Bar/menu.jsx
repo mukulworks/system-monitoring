@@ -7,7 +7,7 @@ import Objectgroup from "../../objects/Objectgroup";
 const api_url = GetDashboardMenu;
 const api_header = API_HEADER;
 
-const Menu = ({ brand, onDataChange }) => {
+const Menu = ({ brand, onDataChange, button }) => {
   const api_parameters = {
     BrandCode: brand,
     CountryCode: "IN",
@@ -50,19 +50,21 @@ const Menu = ({ brand, onDataChange }) => {
     };
   }, [selectedObjectGroup, brandcode]);
 
-  return (
-    <>
-      <div>
-        <ul className="objectGroup-ul">
-          {objectGroup.map((item, index) => (
-            <li key={index} className="objectGroup-li">
-              {item.objectGroup}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </>
-  );
+  if (button !== null) {
+    return (
+      <>
+        <div>
+          <ul className="objectGroup-ul">
+            {objectGroup.map((item, index) => (
+              <li key={index} className="objectGroup-li">
+                {item.objectGroup}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </>
+    );
+  }
 };
 
 export default Menu;

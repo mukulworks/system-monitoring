@@ -4,17 +4,38 @@ import Tabs from "react-bootstrap/Tabs";
 import "./header.css";
 import { PROFILE_URL } from "../Routes/constant";
 import Objectgroup from "../../objects/Objectgroup";
-const Header = ({ brandcode, selectedObjectGroup }) => {
-  const [isToggleOn, setIsToggleOn] = useState(false);
 
+const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
+  const [isToggleOn, setIsToggleOn] = useState(false);
   const [activeTab, setActiveTab] = useState("circle");
+  const [button, setButton] = useState("");
+  const [selectedTabTitle, setSelectedTabTitle] = useState("");
 
   const handleToggle = () => {
     setIsToggleOn(!isToggleOn);
   };
-
   const handleTabSelect = (tabKey) => {
     setActiveTab(tabKey);
+  };
+  const handleTogglebutton = (value) => {
+    setButton(value);
+
+    let tabData = {};
+    switch (value) {
+      case "Sales Dashboard":
+        tabData = { title: "Sales Dashboard" };
+        break;
+      case "After-Sales Dashboard":
+        tabData = { title: "After-Sales Dashboard" };
+        break;
+      case "SysMonitoring Dashboard":
+        tabData = { title: "SysMonitoring Dashboard" };
+        break;
+      default:
+        break;
+    }
+    togglebutton(tabData);
+    setSelectedTabTitle(tabData.title);
   };
 
   return (
@@ -61,6 +82,7 @@ const Header = ({ brandcode, selectedObjectGroup }) => {
                     <img
                       src={`${PROFILE_URL}/Icon-awesome-star.png`}
                       alt="star"
+                      onClick={() => handleTabSelect("fav")}
                     />
                   </li>
 
@@ -88,10 +110,16 @@ const Header = ({ brandcode, selectedObjectGroup }) => {
         </div>
       </div>
 
-      <div className="system_tx">
-        <h4>System Monitoring</h4>
-        <hr className="line1"></hr>
-      </div>
+      {selectedTabTitle && (
+        <div className="system_tx">
+          {selectedTabTitle === "SysMonitoring Dashboard" && (
+            <h4>System Monitoring</h4>
+          )}
+          {selectedTabTitle === "Sales Dashboard" && <h4>Sales</h4>}
+          {selectedTabTitle === "After-Sales Dashboard" && <h4>After-Sales</h4>}
+          <hr className="line1"></hr>
+        </div>
+      )}
 
       <div
         className={`w-100 sidebar-tabs d-flex justify-content-center align-items-center ${
@@ -107,23 +135,25 @@ const Header = ({ brandcode, selectedObjectGroup }) => {
           alt="user side_icon"
           onClick={(e) => {
             e.stopPropagation();
-            handleToggle(); // Add this line to handle the click on the image
+            handleToggle();
           }}
         />
         <div className="sidebar-tabs-data">
           <Tabs
-            defaultActiveKey="profile"
             id="fill-tab-example"
             className="mb-3"
             fill
+            onSelect={handleTogglebutton}
           >
-            <Tab eventKey="home" title="Home"></Tab>
-            <Tab eventKey="profile" title="Profile">
-              Tab content for Profile
-            </Tab>
-            <Tab eventKey="longer-tab" title="Loooonger Tab">
-              Tab content for Loooonger Tab
-            </Tab>
+            <Tab eventKey="Sales Dashboard" title="Sales Dashboard"></Tab>
+            <Tab
+              eventKey="After-Sales Dashboard"
+              title="After-Sales Dashboard"
+            ></Tab>
+            <Tab
+              eventKey="SysMonitoring Dashboard"
+              title="SysMonitoring Dashboard"
+            ></Tab>
           </Tabs>
         </div>
       </div>
@@ -132,7 +162,8 @@ const Header = ({ brandcode, selectedObjectGroup }) => {
         {(activeTab === "circle" ||
           activeTab === "box" ||
           activeTab === "card" ||
-          activeTab === "graph") &&
+          activeTab === "graph" ||
+          activeTab === "fav") &&
           selectedObjectGroup && (
             <Objectgroup
               selectedObjectGroup={selectedObjectGroup}

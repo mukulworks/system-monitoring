@@ -3,6 +3,7 @@ import Circleobject from "./Circles/Circleobject";
 import Boxobject from "./Boxes/Boxobject";
 import Cardobject from "./Cards/Cardoject";
 import Graph from "./Graph/Graph";
+import Fav from "./Fav/Fav";
 
 const Objectgroup = ({ brandcode, selectedObjectGroup, activeTab }) => {
   let renderedComponent;
@@ -31,6 +32,10 @@ const Objectgroup = ({ brandcode, selectedObjectGroup, activeTab }) => {
   } else if (activeTab === "graph") {
     renderedComponent = (
       <Graph brandcode={brandcode} selectedObjectGroup={selectedObjectGroup} />
+    );
+  } else if (activeTab === "fav") {
+    renderedComponent = (
+      <Fav brandcode={brandcode} selectedObjectGroup={selectedObjectGroup} />
     );
   }
 

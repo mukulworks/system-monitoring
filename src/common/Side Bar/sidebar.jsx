@@ -1,6 +1,6 @@
 import "./sidebar.css";
 import Select from "react-select";
-import Menu from "./menu";
+import Menu from "./Menu";
 import React, { useState } from "react";
 import Header from "../Header/Header";
 const dropdown = {
@@ -59,11 +59,16 @@ const Sidebar = () => {
     setBrand(select);
   };
   const [data, setData] = useState(null);
+  const [togglebutton, setTogglebutton] = useState(null);
 
   const handleDataChange = (newData) => {
     setData(newData);
   };
 
+  //button
+  const handlebutton = (button) => {
+    setTogglebutton(button);
+  };
   return (
     <div className="con">
       <div className="leftcon">
@@ -74,12 +79,20 @@ const Sidebar = () => {
             styles={dropdown}
             onChange={handleSelectChange}
           />
-          <Menu brand={brand} onDataChange={handleDataChange} />
+          <Menu
+            brand={brand}
+            onDataChange={handleDataChange}
+            button={togglebutton}
+          />
         </div>
       </div>
       <div className="content">
         <div className="header">
-          <Header brandcode={brand} selectedObjectGroup={data} />
+          <Header
+            brandcode={brand}
+            selectedObjectGroup={data}
+            togglebutton={handlebutton}
+          />
         </div>
       </div>
     </div>
