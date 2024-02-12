@@ -148,7 +148,9 @@
   transform: none;
 }
 
-/* .sidebar-tabs.active #sidebar-click{ display: none;} */
+.sidebar-tabs.active #sidebar-click {
+  display: none;
+}
 
 .sidebar-tabs-data {
   flex: 1;
