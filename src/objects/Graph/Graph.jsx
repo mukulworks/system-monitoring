@@ -90,7 +90,7 @@ const Graph = ({ brandcode, selectedObjectGroup }) => {
         let tempObj = {
           ...temp[0]?.objectTypeList[index]?.objectDescList[index2],
         };
-        tempObj.objectGroupShortDescName = countdata;
+        tempObj.countdata = countdata;
         temp[0]?.objectTypeList[index]?.objectDescList.splice(
           index2,
           1,
@@ -119,7 +119,7 @@ const Graph = ({ brandcode, selectedObjectGroup }) => {
     return item.objectTypeList.flatMap((item1, index) =>
       item1.objectDescList.map((item2, index2) => ({
         x: item2.objectDescName,
-        y: item2.objectGroupShortDescName || 0,
+        y: item2.countdata || 0,
         type: item1.objectTypeName,
       }))
     );
@@ -175,7 +175,7 @@ const Graph = ({ brandcode, selectedObjectGroup }) => {
         options={options}
         series={[{ data: filteredChartData.map((data) => data.y) }]}
         type="bar"
-        height={350}
+        height={400}
         width={1050}
       />
     );
@@ -201,21 +201,6 @@ const Graph = ({ brandcode, selectedObjectGroup }) => {
               <div className="clr_wd">
                 <div className="bac_clr">
                   <div className="box_lin">
-                    {/* {item1.objectDescList.map((item2) => (
-                      <ul>
-                        <li>
-                          <span>{formatDuration(item2.refreshIntervals)}</span>
-                          <div class="count_no">
-                            {item2?.objectGroupShortDescName != undefined
-                              ? item2?.objectGroupShortDescName
-                              : 0}
-                          </div>
-
-                          <p>{item2.objectDescName}</p>
-                        </li>
-                      </ul>
-                    ))} */}
-
                     <div>{renderBarChart(item1.objectTypeName)}</div>
                   </div>
                 </div>

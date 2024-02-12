@@ -88,7 +88,7 @@ const Circleobject = ({ brandcode, selectedObjectGroup }) => {
         let tempObj = {
           ...temp[0]?.objectTypeList[index]?.objectDescList[index2],
         };
-        tempObj.objectGroupShortDescName = countdata;
+        tempObj.countdata = countdata;
         temp[0]?.objectTypeList[index]?.objectDescList.splice(
           index2,
           1,
@@ -125,9 +125,7 @@ const Circleobject = ({ brandcode, selectedObjectGroup }) => {
                           {formatDuration(item2.refreshIntervals)}
                         </div>
                         <div class="count">
-                          {item2?.objectGroupShortDescName != undefined
-                            ? item2?.objectGroupShortDescName
-                            : 0}
+                          {item2?.countdata != undefined ? item2?.countdata : 0}
                         </div>
                       </div>
                       <div class="objectname">{item2.objectDescName}</div>

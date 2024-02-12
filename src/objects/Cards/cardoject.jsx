@@ -87,7 +87,7 @@ const Cardobject = ({ brandcode, selectedObjectGroup }) => {
         let tempObj = {
           ...temp[0]?.objectTypeList[index]?.objectDescList[index2],
         };
-        tempObj.objectGroupShortDescName = countdata;
+        tempObj.countdata = countdata;
         temp[0]?.objectTypeList[index]?.objectDescList.splice(
           index2,
           1,
@@ -128,9 +128,7 @@ const Cardobject = ({ brandcode, selectedObjectGroup }) => {
                         <p>{formatDuration(item2.refreshIntervals)}</p>
 
                         <span>
-                          {item2?.objectGroupShortDescName != undefined
-                            ? item2?.objectGroupShortDescName
-                            : 0}
+                          {item2?.countdata != undefined ? item2?.countdata : 0}
                         </span>
                       </li>
                     </ul>

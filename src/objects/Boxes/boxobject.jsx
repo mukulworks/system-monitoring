@@ -86,7 +86,7 @@ const Boxobject = ({ brandcode, selectedObjectGroup }) => {
         let tempObj = {
           ...temp[0]?.objectTypeList[index]?.objectDescList[index2],
         };
-        tempObj.objectGroupShortDescName = countdata;
+        tempObj.countdata = countdata;
         temp[0]?.objectTypeList[index]?.objectDescList.splice(
           index2,
           1,
@@ -123,8 +123,8 @@ const Boxobject = ({ brandcode, selectedObjectGroup }) => {
                         <li>
                           <span>{formatDuration(item2.refreshIntervals)}</span>
                           <div class="count_no">
-                            {item2?.objectGroupShortDescName != undefined
-                              ? item2?.objectGroupShortDescName
+                            {item2?.countdata != undefined
+                              ? item2?.countdata
                               : 0}
                           </div>
 

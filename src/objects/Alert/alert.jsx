@@ -5,6 +5,8 @@ import {
   GetObjectGroupQuery,
   API_HEADER,
 } from "../../common/Routes/api_constant.jsx";
+import "./alert.css";
+
 const api_url = GetDashboardObject;
 const api_query = GetObjectGroupQuery;
 const api_header = API_HEADER;
@@ -19,6 +21,9 @@ const Alert = ({ brandcode, selectedObjectGroup }) => {
     ObjectGroup: selectedObjectGroup,
   };
   const [object, setObject] = useState([]);
+  const [brandcodeState, setBrandcodeState] = useState();
+  const [selectedObjectGroupState, setSelectedObjectGroupState] = useState();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -34,31 +39,69 @@ const Alert = ({ brandcode, selectedObjectGroup }) => {
 
     fetchData();
   }, [brandcode, selectedObjectGroup]);
+
+  const query_parameters = (objectId, objectQuery) => {
+    const parameters = {
+      BrandCode: brandcode,
+      CountryCode: "IN",
+      ObjectGroup: selectedObjectGroup,
+      QueryName: objectQuery,
+      OBJECTID: objectId,
+    };
+    return parameters;
+  };
+  useEffect(() => {
+    object.flatMap((item) =>
+      item.objectTypeList.flatMap((item1, index) =>
+        item1.objectDescList.flatMap((item2, index2) =>
+          item2.dashboardObjectList.map((item3) =>
+            fetchDatas(index, index2, item3.objectId, item3.objectQuery)
+          )
+        )
+      )
+    );
+  }, [brandcodeState, selectedObjectGroupState]);
+
+  const fetchDatas = (index, index2, objectId, objectQuery) => {
+    try {
+      const count = axios.post(
+        api_query,
+        query_parameters(objectId, objectQuery),
+        { headers: api_header }
+      );
+      Promise.all([count]).then((results) => {
+        const countdata = results[0]?.data?.result?.[0]?.count;
+        const blink = results[0]?.data?.result?.[0]?.blink;
+        // const blink = "Y";
+        let temp = [...object];
+        let tempObj = {
+          ...temp[0]?.objectTypeList[index]?.objectDescList[index2],
+        };
+        tempObj.countdata = countdata;
+        tempObj.blink = blink;
+        temp[0]?.objectTypeList[index]?.objectDescList.splice(
+          index2,
+          1,
+          tempObj
+        );
+        setObject(temp);
+      });
+    } catch (error) {}
+  };
+  console.log(object, "alert");
+
   return (
     <>
       {object.map((item) => (
-        <div className="background">
-          <div class="objgrpname">Alerts</div>
+        <div>
+          <h3>Alerts</h3>
           {item.objectTypeList.map((item1, index) => (
             <>
-              <div class="typename">
-                {item1.objectTypeName}
-                <span class="star1">
-                  <img
-                    src="public/images/Icon-awesome-stroke-star.png"
-                    alt=""
-                  ></img>
-                </span>
-              </div>
-              <hr className="lin4"></hr>
+              {item1.objectDescList.some((item2) => item2.blink === "Y") && (
+                <h5>{item1.objectTypeName}</h5>
+              )}
               {item1.objectDescList.map((item2) => (
-                <>
-                  <div class="flex-container">
-                    <div class="container">
-                      <div class="objectname">{item2.objectDescName}</div>
-                    </div>
-                  </div>
-                </>
+                <>{item2.blink === "Y" && <div>{item2.objectDescName}</div>}</>
               ))}
             </>
           ))}
@@ -67,5 +110,4 @@ const Alert = ({ brandcode, selectedObjectGroup }) => {
     </>
   );
 };
-
 export default Alert;
