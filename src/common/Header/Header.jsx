@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import "./header.css";
@@ -11,6 +11,12 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
   const [button, setButton] = useState("");
   const [selectedTabTitle, setSelectedTabTitle] = useState("");
 
+  useEffect(() => {
+    // Check if brandcode has a value and set isToggleOn to true
+    if (brandcode) {
+      setIsToggleOn(true);
+    }
+  }, [brandcode]);
   const handleToggle = () => {
     setIsToggleOn(!isToggleOn);
   };
@@ -144,6 +150,10 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
             className="mb-3"
             fill
             onSelect={handleTogglebutton}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleToggle();
+            }}
           >
             <Tab eventKey="Sales Dashboard" title="Sales Dashboard"></Tab>
             <Tab
