@@ -84,6 +84,19 @@ const Sidebar = () => {
             onDataChange={handleDataChange}
             button={togglebutton}
           />
+
+<a href="">
+<div className="favourite_tx">
+
+                     <p><img
+                      src="public/images/Icon_awesome_White_star.png"
+                      alt=""
+                    ></img> Favourite</p>
+                   
+</div>
+</a>
+
+
         </div>
       </div>
       <div className="content">
