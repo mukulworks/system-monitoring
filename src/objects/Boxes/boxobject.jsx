@@ -82,11 +82,17 @@ const Boxobject = ({ brandcode, selectedObjectGroup }) => {
       );
       Promise.all([count]).then((results) => {
         const countdata = results[0]?.data?.result?.[0]?.count;
+        const blink = results[0]?.data?.result?.[0]?.blink;
+        const objectColour = results[0]?.data?.result?.[0]?.objectColour;
+        const fontColour = results[0]?.data?.result?.[0]?.fontColour;
         let temp = [...object];
         let tempObj = {
           ...temp[0]?.objectTypeList[index]?.objectDescList[index2],
         };
         tempObj.countdata = countdata;
+        tempObj.blink = blink;
+        tempObj.objectColour = objectColour;
+        tempObj.fontColour = fontColour;
         temp[0]?.objectTypeList[index]?.objectDescList.splice(
           index2,
           1,

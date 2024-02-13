@@ -3,6 +3,7 @@ import Select from "react-select";
 import Menu from "./Menu";
 import React, { useState } from "react";
 import Header from "../Header/Header";
+import Fav from "../../objects/Fav/Fav";
 const dropdown = {
   control: (provided) => ({
     ...provided,
@@ -60,12 +61,9 @@ const Sidebar = () => {
   };
   const [data, setData] = useState(null);
   const [togglebutton, setTogglebutton] = useState(null);
-
   const handleDataChange = (newData) => {
     setData(newData);
   };
-
-  //button
   const handlebutton = (button) => {
     setTogglebutton(button);
   };
@@ -84,19 +82,19 @@ const Sidebar = () => {
             onDataChange={handleDataChange}
             button={togglebutton}
           />
-
-<a href="">
-<div className="favourite_tx">
-
-                     <p><img
-                      src="public/images/Icon_awesome_White_star.png"
-                      alt=""
-                    ></img> Favourite</p>
-                   
-</div>
-</a>
-
-
+          {togglebutton && (
+            <a href="">
+              <div className="favourite_tx">
+                <p>
+                  <img
+                    src="public/images/Icon_awesome_White_star.png"
+                    alt=""
+                  ></img>{" "}
+                  Favourite
+                </p>
+              </div>
+            </a>
+          )}
         </div>
       </div>
       <div className="content">

@@ -4,6 +4,7 @@ import Tabs from "react-bootstrap/Tabs";
 import "./header.css";
 import { PROFILE_URL } from "../Routes/constant";
 import Objectgroup from "../../objects/Objectgroup";
+import Alert from "../../objects/Alert/alert";
 
 const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
   const [isToggleOn, setIsToggleOn] = useState(false);
@@ -12,7 +13,6 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
   const [selectedTabTitle, setSelectedTabTitle] = useState("");
 
   useEffect(() => {
-    // Check if brandcode has a value and set isToggleOn to true
     if (brandcode) {
       setIsToggleOn(true);
     }
@@ -180,6 +180,15 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
               activeTab={activeTab}
             />
           )}
+      </div>
+
+      <div>
+        {activeTab === "alert" && selectedObjectGroup && (
+          <Alert
+            brandcode={brandcode}
+            selectedObjectGroup={selectedObjectGroup}
+          />
+        )}
       </div>
     </>
   );

@@ -84,11 +84,17 @@ const Circleobject = ({ brandcode, selectedObjectGroup }) => {
       );
       Promise.all([count]).then((results) => {
         const countdata = results[0]?.data?.result?.[0]?.count;
+        const blink = results[0]?.data?.result?.[0]?.blink;
+        const objectColour = results[0]?.data?.result?.[0]?.objectColour;
+        const fontColour = results[0]?.data?.result?.[0]?.fontColour;
         let temp = [...object];
         let tempObj = {
           ...temp[0]?.objectTypeList[index]?.objectDescList[index2],
         };
         tempObj.countdata = countdata;
+        tempObj.blink = blink;
+        tempObj.objectColour = objectColour;
+        tempObj.fontColour = fontColour;
         temp[0]?.objectTypeList[index]?.objectDescList.splice(
           index2,
           1,
@@ -120,7 +126,15 @@ const Circleobject = ({ brandcode, selectedObjectGroup }) => {
                 <>
                   <div class="flex-container">
                     <div class="container">
-                      <div class="circle">
+                      <div
+                        class="circle"
+                        style={{
+                          border:
+                            item2.blink === "Y"
+                              ? `2px solid ${item2.objectColour}`
+                              : "none",
+                        }}
+                      >
                         <div class="interval">
                           {formatDuration(item2.refreshIntervals)}
                         </div>

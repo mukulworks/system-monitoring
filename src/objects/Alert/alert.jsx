@@ -88,7 +88,6 @@ const Alert = ({ brandcode, selectedObjectGroup }) => {
       });
     } catch (error) {}
   };
-  console.log(object, "alert");
 
   return (
     <>
