@@ -212,9 +212,11 @@
 
 .tb_bdr ul {
   border-radius: 35px;
+  border-bottom: none;
 }
 .tb_bdr ul li {
   border-radius: 35px;
+  margin: 1px 2px 1px 0px;
 }
 .tb_bdr ul li a {
   color: #000;
