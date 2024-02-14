@@ -92,16 +92,19 @@ const Alert = ({ brandcode, selectedObjectGroup }) => {
   return (
     <div className="flex flex-col dropDownProfile">
       {object.map((item) => (
+
+        
         <ul className="flex flex-col gap-4">
-          <li>Alerts</li>
-          <hr />
+         <p className="aler_tx">Alerts</p>
+          <hr className="lin5" />
           {item.objectTypeList.map((item1, index) => (
             <>
               {item1.objectDescList.some((item2) => item2.blink === "Y") && (
-                <li>{item1.objectTypeName}</li>
+                <li className="hlt_tx">  {item1.objectTypeName} <hr className="lin6"></hr></li>
               )}
+              
               {item1.objectDescList.map((item2) => (
-                <>{item2.blink === "Y" && <li>{item2.objectDescName}</li>}</>
+                <>{item2.blink === "Y" && <li><img className="aro_pic" src="public/Assets/arro.png"alt=""></img> {item2.objectDescName}</li>}</>
               ))}
             </>
           ))}

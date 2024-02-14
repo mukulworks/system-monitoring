@@ -1,22 +1,68 @@
 .dropDownProfile {
   position: absolute;
   top: 4.5rem;
-  right: 21.5rem;
+  right: 22.5rem;
   width: 249px;
   border-radius: 29px;
-  background-color: white;
-  border: 1px solid grey;
+  /* background-color: white; */
+  border: 1px solid #7286d3;
+  background-image: url("public/images/not.png");
+  background-size: cover;
+  
 }
 
 .dropDownProfile ::before {
   content: "";
   position: absolute;
-  top: -0.7rem;
+  top: -10px;
   right: 7rem;
-  width: 25px;
-  height: 25px;
+  width: 18px;
+  height: 18px;
   transform: rotate(45deg);
-  background-color: white;
-  border-left: 1px solid grey;
-  border-top: 1px solid gray;
+  background-color: #f7f6ff;
+  border-left: 1px solid #7286d3;
+  border-top: 1px solid #7286d3;
+}
+
+
+.aler_tx{font-size: 18px;
+  font-weight: bold;
+  list-style: none;
+  margin-top: 12px;}
+
+
+  .dropDownProfile ul {
+    padding-left: 34px;
+}
+.dropDownProfile ul li{ list-style: none;
+  font-size: 13px;
+  color: #505ED8;}
+
+.dropDownProfile p {
+  margin-top: 20px;
+  padding: 0;
+  line-height: 0;
+}
+
+.lin5 {
+  border: 1px solid #000C77;
+  opacity: inherit;
+  width: 92%;
+  margin-bottom: 10px;
+}
+
+.hlt_tx{font-size: 16px !important; color: #000C77 !important;}
+
+.lin6 {
+  border: 1px solid #000C77;
+  opacity: inherit;
+  width: 14%;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 4px;
+}
+
+.aro_pic {
+  width: 3px;
+  margin: 0 5px 0 0;
 }

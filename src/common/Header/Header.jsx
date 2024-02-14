@@ -56,35 +56,35 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
             {selectedObjectGroup && (
               <div className="top_icon">
                 <ul>
-                  <li className="active">
+                  <li className={activeImage === "circle" ? "active" : ""}>
                     <img
-                      className={activeImage === "circle" ? "clicked" : ""}
+                      
                       src={`${PROFILE_URL}/Circle-View.png`}
                       alt="Circle View"
                       onClick={() => handleTabSelect("circle")}
                     />
                   </li>
-                  <li>
+                  <li className={activeImage === "box" ? "active" : ""}>
                     <img
-                      className={activeImage === "box" ? "clicked" : ""}
+                      
                       src={`${PROFILE_URL}/Long-Card-View.png`}
                       alt="Long-card View"
                       onClick={() => handleTabSelect("box")}
                     />
                   </li>
 
-                  <li>
+                  <li className={activeImage === "card" ? "active" : ""}>
                     <img
-                      className={activeImage === "card" ? "clicked" : ""}
+                      
                       src={`${PROFILE_URL}/Card-View.png`}
                       alt="Card View"
                       onClick={() => handleTabSelect("card")}
                     />
                   </li>
 
-                  <li>
+                  <li className={activeImage === "graph" ? "active" : ""}>
                     <img
-                      className={activeImage === "graph" ? "clicked" : ""}
+                     
                       src={`${PROFILE_URL}/Graph-View.png`}
                       alt="Graph View"
                       onClick={() => handleTabSelect("graph")}

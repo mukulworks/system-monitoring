@@ -47,7 +47,7 @@
 }
 
 .interval {
-  font-size: 10px;
+  font-size: 9px;
   color: #000c77;
 }
 
@@ -109,9 +109,9 @@
 
 .vpo_box1 ul li span {
   float: right;
-  font-size: 36px;
+  font-size: 39px;
   position: absolute;
-  top: 22px;
+  top: 16px;
   right: 13px;
   font-weight: 400;
 }

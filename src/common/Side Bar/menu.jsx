@@ -56,7 +56,7 @@ const Menu = ({ brand, onDataChange, button }) => {
         <div>
           <ul className="objectGroup-ul">
             {objectGroup.map((item, index) => (
-              <li key={index} className="objectGroup-li">
+              <li key={index} className="objectGroup-li active">
                 {item.objectGroup}
               </li>
             ))}

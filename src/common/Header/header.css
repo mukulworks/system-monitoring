@@ -117,7 +117,9 @@
   float: left;
 }
 .top_icon ul {
-  margin-top: 4px;
+  /* margin-top: 4px; */
+  padding: 0px;
+  margin: 0px;
 }
 .top_icon ul li {
   list-style: none;
@@ -275,6 +277,9 @@
   width: 79%;
 }
 
+.favourite_tx .active{ background-color: #fff;}
+
+
 .favourite_tx p {
   color: #fff;
   font-size: 14px;
@@ -293,10 +298,26 @@
   border-radius: 35px;
 }
 
+
+
+
 .clicked {
-  /* background-color: red; */
   background: #e5e0ff;
   padding: 10px;
   border-radius: 50%;
   line-height: 12px;
+}
+
+
+.clicked img{ width: 50px !important;}
+
+
+
+
+
+@media(min-width:1900px) {
+  .tb_ht {
+    width: 88% !important;
+    
+}
 }

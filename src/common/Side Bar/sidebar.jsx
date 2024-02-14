@@ -15,13 +15,14 @@ const dropdown = {
     borderRadius: "10px",
     margin: "10px",
     marginTop: "5px",
+    
   }),
   placeholder: (provided) => ({
     ...provided,
   }),
   menu: (provided) => ({
     ...provided,
-    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+    boxShadow: "none",
     width: "90%",
     height: "125px",
     padding: "3px",
@@ -29,6 +30,8 @@ const dropdown = {
     border: "0px solid #ccc",
     borderRadius: "10px",
     marginLeft: "10px",
+    background: "none",
+    marginTop: "0px"
   }),
   menuList: (provided) => ({
     ...provided,
@@ -39,14 +42,22 @@ const dropdown = {
   }),
   option: (provided) => ({
     ...provided,
-    textAlign: "center",
-    color: "purple",
+    textAlign: "left",
+    color: "#000C77",
+    background: "#fff",
+    fontWeight: "600",
+    borderRadius: "9px",
+    marginBottom: "1px",
+    padding:"5px 15px"
+    
+    
   }),
   singleValue: (provided) => ({
     ...provided,
     color: "purple",
   }),
 };
+
 const options = [
   { value: "option1", label: "ISUZU" },
   { value: "option2", label: "BENELLI" },

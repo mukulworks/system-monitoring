@@ -139,9 +139,9 @@ const Boxobject = ({ brandcode, selectedObjectGroup }) => {
                       // </ul>
 
                       <div className="flex-container">
-                        <div className="container">
+                        <div className="container bodr_rt">
                           <div
-                            className="circle"
+                            className="circle2"
                             style={{
                               border:
                                 item2.blink === "Y"
@@ -149,7 +149,7 @@ const Boxobject = ({ brandcode, selectedObjectGroup }) => {
                                   : "none",
                             }}
                           >
-                            <div className="interval">
+                            <div className="interval2">
                               {formatDuration(item2.refreshIntervals)}
                             </div>
                             <div className="count">
