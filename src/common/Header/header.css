@@ -122,16 +122,35 @@
 .top_icon ul li {
   list-style: none;
   display: inline-block;
-  margin: 0 0 0 12px;
+  padding: 10px;
 }
+
+
+.top_icon ul li:hover {
+  background: #e5e0ff;
+  padding: 10px;
+  border-radius: 50%;
+  line-height: 12px;
+}
+
+
+.top_icon ul li.active, .li:hover {
+  background: #e5e0ff;
+  padding: 10px;
+  border-radius: 50%;
+  line-height: 12px;
+}
+
 
 .top_icon ul li img {
   width: 22px;
 }
 
 .icon_pdg1 {
-  padding-left: 42px;
+  margin-left: 42px !important;
 }
+
+.icon_pdg1:hover{ }
 
 /* New tabs */
 
@@ -146,6 +165,7 @@
   top: 0;
   right: 0;
   transform: none;
+  border: inherit;
 }
 
 .sidebar-tabs.active #sidebar-click {
@@ -179,9 +199,12 @@
 .tb_ht {
   height: inherit;
   padding: 0 0 0px 0;
-  width: 84% !important;
+  width: 85% !important;
   margin: 0 auto;
   margin-top: 100px;
+  border: solid 1px #505ED8;
+  border-radius: 35px 35px 35px 35px;
+  box-shadow: 0px 5px 5px 5px rgb(76 92 226 / 15%);
 }
 
 .tb_bdr {
@@ -240,8 +263,9 @@
 }
 
 .sid_click {
-  width: 65px;
-  height: 65px;
+  width: 50px;
+  height: 50px;
+  padding: 5px;
 }
 
 .favourite_tx {

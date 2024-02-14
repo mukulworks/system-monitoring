@@ -9,4 +9,4 @@ export const GetDashboardMenu = `${API_URL}/GetDashboardMenu`;
 
 export const GetDashboardObject = `${API_URL}/GetDashboardObject`;
 
-export const GetObjectGroupQuery = `${API_URL}/GetObjectGroupQuery`;
+export const GetObjectGroupQuery = `${API_URL}/GetObjectGroupQueryV2`;

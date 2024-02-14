@@ -67,7 +67,7 @@
 
 .bac_clr {
   border-radius: 15px;
-  box-shadow: 0 5px 15px #00000059;
+  box-shadow: 0px 5px 5px 5px rgba(80, 94, 216, 0.14);
   padding: 9px 0 9px 0;
   width: fit-content;
   margin: 0 55px 0 0;
@@ -77,41 +77,52 @@
 }
 
 .bac_clr:hover {
-  box-shadow: 5px 5px 5px rgba(80, 94, 216, 0.39);
+  box-shadow: 0px 5px 5px 5px rgba(80, 94, 216, 0.39);
 }
 
 .box_lin ul {
   padding: 0;
   margin: 0;
   display: inline-block;
+  border-right: solid 2px #ff001a;
+  margin-bottom: 40px;
 }
 
 .box_lin ul li {
   list-style: none;
   background-image: url("public/Assets/Circle Background.png");
   background-repeat: no-repeat;
-  background-size: 48%;
-  margin-bottom: 40px;
-  background-position: 57% 80%;
-  padding: 0 10px 0px 10px;
-  border-right: solid 2px #d6d0f5;
-  width: 140px;
+    background-size: 66%;
+    margin-bottom: 40px;
+    background-position: 57% 80%;
+    padding: 0 10px 0px 10px;
+    border-right: solid 2px #d6d0f5;
+    border: solid 1px #f40000;
+    border-radius: 50%;
+    width: 103px !important;
+    height: 102px !important;
+    margin: 0px 23px 18px 16px !important;
+}
+
+
+.box_lin ul:last-child {
+  border-right: none;
 }
 
 .box_lin ul li p {
   font-size: 11px;
   text-align: center;
   line-height: 15px;
-  margin-top: 7px;
+  padding-top: 25px;
   width: 100%;
   float: left;
 }
 
 .box_lin ul li span {
-  text-align: right;
+  text-align: center;
   width: 100%;
   display: inline-block;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .count_no {

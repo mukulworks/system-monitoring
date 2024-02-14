@@ -53,7 +53,7 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
             {selectedObjectGroup && (
               <div className="top_icon">
                 <ul>
-                  <li>
+                  <li className="active">
                     <img
                       src={`${PROFILE_URL}/Circle-View.png`}
                       alt="Circle View"
@@ -136,7 +136,7 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
         <img
           id="sidebar-click"
           className="me-2 sid_click"
-          src={`${PROFILE_URL}/side_icon.png`}
+          src={`${PROFILE_URL}/Side_Menu_Animated_Button.png`}
           onClick={(e) => {
             e.stopPropagation();
             handleToggle();
