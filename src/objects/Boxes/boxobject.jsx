@@ -82,11 +82,17 @@ const Boxobject = ({ brandcode, selectedObjectGroup }) => {
       );
       Promise.all([count]).then((results) => {
         const countdata = results[0]?.data?.result?.[0]?.count;
+        const blink = results[0]?.data?.result?.[0]?.blink;
+        const objectColour = results[0]?.data?.result?.[0]?.objectColour;
+        const fontColour = results[0]?.data?.result?.[0]?.fontColour;
         let temp = [...object];
         let tempObj = {
           ...temp[0]?.objectTypeList[index]?.objectDescList[index2],
         };
         tempObj.countdata = countdata;
+        tempObj.blink = blink;
+        tempObj.objectColour = objectColour;
+        tempObj.fontColour = fontColour;
         temp[0]?.objectTypeList[index]?.objectDescList.splice(
           index2,
           1,
@@ -101,12 +107,12 @@ const Boxobject = ({ brandcode, selectedObjectGroup }) => {
     <>
       {object.map((item) => (
         <div className="background">
-          <div class="objgrpname">{item.objectGroupDescName}</div>
+          <div className="objgrpname">{item.objectGroupDescName}</div>
           {item.objectTypeList.map((item1) => (
             <>
-              <div class="typename">
+              <div className="typename">
                 {item1.objectTypeName}
-                <span class="star1">
+                <span className="star1">
                   <img
                     src="public/images/Icon-awesome-stroke-star.png"
                     alt=""
@@ -119,18 +125,44 @@ const Boxobject = ({ brandcode, selectedObjectGroup }) => {
                 <div className="bac_clr">
                   <div className="box_lin">
                     {item1.objectDescList.map((item2) => (
-                      <ul>
-                        <li>
-                          <span>{formatDuration(item2.refreshIntervals)}</span>
-                          <div class="count_no">
-                            {item2?.countdata != undefined
-                              ? item2?.countdata
-                              : 0}
-                          </div>
+                      // <ul>
+                      //   <li>
+                      //     <span>{formatDuration(item2.refreshIntervals)}</span>
+                      //     <div class="count_no">
+                      //       {item2?.countdata != undefined
+                      //         ? item2?.countdata
+                      //         : 0}
+                      //     </div>
 
-                          <p>{item2.objectDescName}</p>
-                        </li>
-                      </ul>
+                      //     <p>{item2.objectDescName}</p>
+                      //   </li>
+                      // </ul>
+
+                      <div className="flex-container">
+                        <div className="container">
+                          <div
+                            className="circle"
+                            style={{
+                              border:
+                                item2.blink === "Y"
+                                  ? `2px solid ${item2.objectColour}`
+                                  : "none",
+                            }}
+                          >
+                            <div className="interval">
+                              {formatDuration(item2.refreshIntervals)}
+                            </div>
+                            <div className="count">
+                              {item2?.countdata != undefined
+                                ? item2?.countdata
+                                : 0}
+                            </div>
+                          </div>
+                          <div className="objectname">
+                            {item2.objectDescName}
+                          </div>
+                        </div>
+                      </div>
                     ))}
                   </div>
                 </div>

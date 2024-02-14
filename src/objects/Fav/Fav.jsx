@@ -89,11 +89,14 @@ const Fav = ({ brandcode, selectedObjectGroup }) => {
       );
       Promise.all([count]).then((results) => {
         const countdata = results[0]?.data?.result?.[0]?.count;
+        const blink = results[0]?.data?.result?.[0]?.blink;
+        const objectColour = results[0]?.data?.result?.[0]?.objectColour;
+        const fontColour = results[0]?.data?.result?.[0]?.fontColour;
         let temp = [...object];
         let tempObj = {
           ...temp[0]?.objectTypeList[index]?.objectDescList[index2],
         };
-        tempObj.objectGroupShortDescName = countdata;
+        tempObj.countdata = countdata;
         temp[0]?.objectTypeList[index]?.objectDescList.splice(
           index2,
           1,
@@ -103,7 +106,6 @@ const Fav = ({ brandcode, selectedObjectGroup }) => {
       });
     } catch (error) {}
   };
-  console.log(object, "object");
 
   return (
     <>
@@ -131,8 +133,8 @@ const Fav = ({ brandcode, selectedObjectGroup }) => {
                           {formatDuration(item2.refreshIntervals)}
                         </div>
                         <div class="count">
-                          {item2?.objectGroupShortDescName != undefined
-                            ? item2?.objectGroupShortDescName
+                          {item2?.countdata != undefined
+                            ? item2?.countdata
                             : 99}
                         </div>
                       </div>

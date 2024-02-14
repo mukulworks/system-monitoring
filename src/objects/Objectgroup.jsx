@@ -34,14 +34,15 @@ const Objectgroup = ({ brandcode, selectedObjectGroup, activeTab }) => {
     renderedComponent = (
       <Graph brandcode={brandcode} selectedObjectGroup={selectedObjectGroup} />
     );
-  } else if (activeTab === "fav") {
-    renderedComponent = (
-      <Fav brandcode={brandcode} selectedObjectGroup={selectedObjectGroup} />
-    );
-  } else if (activeTab === "alert") {
-    renderedComponent = (
-      <Alert brandcode={brandcode} selectedObjectGroup={selectedObjectGroup} />
-    );
+    // } else if (activeTab === "fav") {
+    //   renderedComponent = (
+    //     <Fav brandcode={brandcode} selectedObjectGroup={selectedObjectGroup} />
+    //   );
+
+    // } else if (activeTab === "alert") {
+    //   renderedComponent = (
+    //     <Alert brandcode={brandcode} selectedObjectGroup={selectedObjectGroup} />
+    //   );
   }
 
   return (

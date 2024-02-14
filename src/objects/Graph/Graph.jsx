@@ -101,20 +101,6 @@ const Graph = ({ brandcode, selectedObjectGroup }) => {
     } catch (error) {}
   };
 
-  // const chartData = object.flatMap((item) =>
-  //   item.objectTypeList.flatMap((item1, index) =>
-  //     item1.objectDescList.flatMap(
-  //       (item2, index2) => (
-  //         console.log("item1", item1),
-  //         {
-  //           x: item2.objectDescName,
-  //           y: item2.objectGroupShortDescName || 0,
-  //         }
-  //       )
-  //     )
-  //   )
-  // );
-
   const getChartData = (item) => {
     return item.objectTypeList.flatMap((item1, index) =>
       item1.objectDescList.map((item2, index2) => ({

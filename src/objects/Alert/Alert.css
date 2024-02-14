@@ -1,0 +1,22 @@
+.dropDownProfile {
+  position: absolute;
+  top: 4.5rem;
+  right: 21.5rem;
+  width: 249px;
+  border-radius: 29px;
+  background-color: white;
+  border: 1px solid grey;
+}
+
+.dropDownProfile ::before {
+  content: "";
+  position: absolute;
+  top: -0.7rem;
+  right: 7rem;
+  width: 25px;
+  height: 25px;
+  transform: rotate(45deg);
+  background-color: white;
+  border-left: 1px solid grey;
+  border-top: 1px solid gray;
+}

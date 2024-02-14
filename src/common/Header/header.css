@@ -292,3 +292,11 @@
   background: #8fa2e9;
   border-radius: 35px;
 }
+
+.clicked {
+  /* background-color: red; */
+  background: #e5e0ff;
+  padding: 10px;
+  border-radius: 50%;
+  line-height: 12px;
+}
