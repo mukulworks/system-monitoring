@@ -7,10 +7,12 @@ import Objectgroup from "../../objects/Objectgroup";
 import Alert from "../../objects/Alert/alert";
 
 const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
-  const [isToggleOn, setIsToggleOn] = useState(false);
+  const [isToggleOn, setIsToggleOn] = useState("");
   const [activeTab, setActiveTab] = useState("circle");
   const [button, setButton] = useState("");
   const [selectedTabTitle, setSelectedTabTitle] = useState("");
+  const [isNotificationClick, setIsNotificationClick] = useState(false);
+  const [activeImage, setActiveImage] = useState("circle");
 
   useEffect(() => {
     if (brandcode) {
@@ -22,6 +24,7 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
   };
   const handleTabSelect = (tabKey) => {
     setActiveTab(tabKey);
+    setActiveImage(tabKey);
   };
   const handleTogglebutton = (value) => {
     setButton(value);
@@ -55,6 +58,7 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
                 <ul>
                   <li>
                     <img
+                      className={activeImage === "circle" ? "clicked" : ""}
                       src={`${PROFILE_URL}/Circle-View.png`}
                       alt="Circle View"
                       onClick={() => handleTabSelect("circle")}
@@ -62,6 +66,7 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
                   </li>
                   <li>
                     <img
+                      className={activeImage === "box" ? "clicked" : ""}
                       src={`${PROFILE_URL}/Long-Card-View.png`}
                       alt="Long-card View"
                       onClick={() => handleTabSelect("box")}
@@ -70,6 +75,7 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
 
                   <li>
                     <img
+                      className={activeImage === "card" ? "clicked" : ""}
                       src={`${PROFILE_URL}/Card-View.png`}
                       alt="Card View"
                       onClick={() => handleTabSelect("card")}
@@ -78,6 +84,7 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
 
                   <li>
                     <img
+                      className={activeImage === "graph" ? "clicked" : ""}
                       src={`${PROFILE_URL}/Graph-View.png`}
                       alt="Graph View"
                       onClick={() => handleTabSelect("graph")}
@@ -88,7 +95,7 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
                     <img
                       src={`${PROFILE_URL}/Icon-awesome-star.png`}
                       alt="star"
-                      onClick={() => handleTabSelect("fav")}
+                      // onClick={() => handleTabSelect("fav")}
                     />
                   </li>
 
@@ -96,7 +103,7 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
                     <img
                       src={`${PROFILE_URL}/Notification-Bell Icon.png`}
                       alt="notification bell"
-                      onClick={() => handleTabSelect("alert")}
+                      onClick={() => setIsNotificationClick((prev) => !prev)}
                     />
                   </li>
                 </ul>
@@ -183,7 +190,7 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
       </div>
 
       <div>
-        {activeTab === "alert" && selectedObjectGroup && (
+        {isNotificationClick && (
           <Alert
             brandcode={brandcode}
             selectedObjectGroup={selectedObjectGroup}

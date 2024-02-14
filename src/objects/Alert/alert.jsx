@@ -90,23 +90,24 @@ const Alert = ({ brandcode, selectedObjectGroup }) => {
   };
 
   return (
-    <>
+    <div className="flex flex-col dropDownProfile">
       {object.map((item) => (
-        <div>
-          <h3>Alerts</h3>
+        <ul className="flex flex-col gap-4">
+          <li>Alerts</li>
+          <hr />
           {item.objectTypeList.map((item1, index) => (
             <>
               {item1.objectDescList.some((item2) => item2.blink === "Y") && (
-                <h5>{item1.objectTypeName}</h5>
+                <li>{item1.objectTypeName}</li>
               )}
               {item1.objectDescList.map((item2) => (
-                <>{item2.blink === "Y" && <div>{item2.objectDescName}</div>}</>
+                <>{item2.blink === "Y" && <li>{item2.objectDescName}</li>}</>
               ))}
             </>
           ))}
-        </div>
+        </ul>
       ))}
-    </>
+    </div>
   );
 };
 export default Alert;

@@ -124,10 +124,10 @@ const Circleobject = ({ brandcode, selectedObjectGroup }) => {
               <hr className="lin4"></hr>
               {item1.objectDescList.map((item2) => (
                 <>
-                  <div class="flex-container">
+                  <div className="flex-container">
                     <div class="container">
                       <div
-                        class="circle"
+                        className="circle"
                         style={{
                           border:
                             item2.blink === "Y"
@@ -135,14 +135,14 @@ const Circleobject = ({ brandcode, selectedObjectGroup }) => {
                               : "none",
                         }}
                       >
-                        <div class="interval">
+                        <div className="interval">
                           {formatDuration(item2.refreshIntervals)}
                         </div>
-                        <div class="count">
+                        <div className="count">
                           {item2?.countdata != undefined ? item2?.countdata : 0}
                         </div>
                       </div>
-                      <div class="objectname">{item2.objectDescName}</div>
+                      <div className="objectname">{item2.objectDescName}</div>
                     </div>
                   </div>
                 </>
