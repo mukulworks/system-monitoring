@@ -98,11 +98,15 @@ const Alert = ({ brandcode, selectedObjectGroup, menulist }) => {
         <ul className="flex flex-col gap-4">
           <p className="aler_tx">Alerts</p>
           <hr className="lin5" />
+
+          <p className="aler_tx">
+            {selectedObjectGroup === "CRM" ? "wholesale" : "CRM"}
+          </p>
+          <hr className="lin6"></hr>
           {item.objectTypeList?.map((item1, index) => (
             <>
               {item1.objectDescList.some((item2) => item2.blink === "Y") && (
                 <li className="hlt_tx">
-                  {" "}
                   {item1.objectTypeName} <hr className="lin6"></hr>
                 </li>
               )}
