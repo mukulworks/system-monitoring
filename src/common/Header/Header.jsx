@@ -6,7 +6,7 @@ import { PROFILE_URL } from "../Routes/constant";
 import Objectgroup from "../../objects/Objectgroup";
 import Alert from "../../objects/Alert/alert";
 
-const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
+const Header = ({ brandcode, selectedObjectGroup, togglebutton, menulist }) => {
   const [isToggleOn, setIsToggleOn] = useState("");
   const [activeTab, setActiveTab] = useState("circle");
   const [button, setButton] = useState("");
@@ -58,7 +58,6 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
                 <ul>
                   <li className={activeImage === "circle" ? "active" : ""}>
                     <img
-                      
                       src={`${PROFILE_URL}/Circle-View.png`}
                       alt="Circle View"
                       onClick={() => handleTabSelect("circle")}
@@ -66,7 +65,6 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
                   </li>
                   <li className={activeImage === "box" ? "active" : ""}>
                     <img
-                      
                       src={`${PROFILE_URL}/Long-Card-View.png`}
                       alt="Long-card View"
                       onClick={() => handleTabSelect("box")}
@@ -75,7 +73,6 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
 
                   <li className={activeImage === "card" ? "active" : ""}>
                     <img
-                      
                       src={`${PROFILE_URL}/Card-View.png`}
                       alt="Card View"
                       onClick={() => handleTabSelect("card")}
@@ -84,20 +81,19 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
 
                   <li className={activeImage === "graph" ? "active" : ""}>
                     <img
-                     
                       src={`${PROFILE_URL}/Graph-View.png`}
                       alt="Graph View"
                       onClick={() => handleTabSelect("graph")}
                     />
                   </li>
 
-                  <li className="icon_pdg1">
+                  {/* <li className="icon_pdg1">
                     <img
                       src={`${PROFILE_URL}/Icon-awesome-star.png`}
                       alt="star"
                       // onClick={() => handleTabSelect("fav")}
                     />
-                  </li>
+                  </li> */}
 
                   <li>
                     <img
@@ -178,7 +174,7 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
           activeTab === "box" ||
           activeTab === "card" ||
           activeTab === "graph" ||
-          activeTab === "fav" ||
+          // activeTab === "fav" ||
           activeTab === "alert") &&
           selectedObjectGroup && (
             <Objectgroup
@@ -188,14 +184,14 @@ const Header = ({ brandcode, selectedObjectGroup, togglebutton }) => {
             />
           )}
       </div>
-
       <div>
-        {isNotificationClick && (
+        {isNotificationClick === true ? (
           <Alert
             brandcode={brandcode}
             selectedObjectGroup={selectedObjectGroup}
+            menulist={menulist}
           />
-        )}
+        ) : null}
       </div>
     </>
   );

@@ -112,12 +112,12 @@ const Boxobject = ({ brandcode, selectedObjectGroup }) => {
             <>
               <div className="typename">
                 {item1.objectTypeName}
-                <span className="star1">
+                {/* <span className="star1">
                   <img
                     src="public/images/Icon-awesome-stroke-star.png"
                     alt=""
                   ></img>
-                </span>
+                </span> */}
               </div>
               <hr className="lin4"></hr>
 

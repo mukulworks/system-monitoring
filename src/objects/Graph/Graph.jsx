@@ -175,12 +175,12 @@ const Graph = ({ brandcode, selectedObjectGroup }) => {
             <>
               <div class="typename">
                 {item1.objectTypeName}
-                <span class="star1">
+                {/* <span class="star1">
                   <img
                     src="public/images/Icon-awesome-stroke-star.png"
                     alt=""
                   ></img>
-                </span>
+                </span> */}
               </div>
               <hr className="lin4"></hr>
 

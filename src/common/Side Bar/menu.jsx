@@ -7,7 +7,7 @@ import Objectgroup from "../../objects/Objectgroup";
 const api_url = GetDashboardMenu;
 const api_header = API_HEADER;
 
-const Menu = ({ brand, onDataChange, button }) => {
+const Menu = ({ brand, onDataChange, button, menulist }) => {
   const api_parameters = {
     BrandCode: brand,
     CountryCode: "IN",
@@ -19,6 +19,9 @@ const Menu = ({ brand, onDataChange, button }) => {
   const [objectGroup, setObjectGroup] = useState([]);
   const [selectedObjectGroup, setSelectedObjectGroup] = useState("");
   const [brandcode, setBrandcode] = useState("");
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const [objectGroupNames, setObjectGroupNames] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,6 +31,8 @@ const Menu = ({ brand, onDataChange, button }) => {
         });
         const data = response?.data?.result?.getDashboardMenuList;
         setObjectGroup(data);
+        const objectGroupValues = data.map((item) => item.objectGroup);
+        setObjectGroupNames(objectGroupValues);
       } catch (error) {}
     };
 
@@ -35,28 +40,40 @@ const Menu = ({ brand, onDataChange, button }) => {
   }, [brand]);
 
   useEffect(() => {
-    const handleClick = (e, brand) => {
-      if (e.target.matches(".objectGroup-li")) {
-        setSelectedObjectGroup(e.target.textContent);
-        onDataChange(e.target.textContent);
-      }
+    const handleClick = (index) => {
+      setSelectedObjectGroup(objectGroup[index].objectGroup);
+      onDataChange(objectGroup[index].objectGroup);
+      setActiveIndex(index);
     };
 
-    document.addEventListener("click", handleClick);
+    document.querySelectorAll(".objectGroup-li").forEach((item, index) => {
+      item.addEventListener("click", () => handleClick(index));
+    });
     setBrandcode(brand);
 
+    menulist(objectGroupNames);
+
     return () => {
-      document.removeEventListener("click", handleClick);
+      document.querySelectorAll(".objectGroup-li").forEach((item) => {
+        item.removeEventListener("click", () => handleClick(index));
+      });
     };
-  }, [selectedObjectGroup, brandcode]);
+  }, [objectGroup, onDataChange]);
 
   if (button !== null) {
     return (
       <>
         <div>
           <ul className="objectGroup-ul">
-            {objectGroup.map((item, index) => (
-              <li key={index} className="objectGroup-li active">
+            {objectGroup?.map((item, index) => (
+              <li
+                key={index}
+                className={
+                  index === activeIndex
+                    ? "objectGroup-li active"
+                    : "objectGroup-li"
+                }
+              >
                 {item.objectGroup}
               </li>
             ))}

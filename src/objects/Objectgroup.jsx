@@ -4,7 +4,6 @@ import Boxobject from "./Boxes/Boxobject";
 import Cardobject from "./Cards/Cardoject";
 import Graph from "./Graph/Graph";
 import Fav from "./Fav/Fav";
-import Alert from "./Alert/alert";
 
 const Objectgroup = ({ brandcode, selectedObjectGroup, activeTab }) => {
   let renderedComponent;
@@ -34,15 +33,6 @@ const Objectgroup = ({ brandcode, selectedObjectGroup, activeTab }) => {
     renderedComponent = (
       <Graph brandcode={brandcode} selectedObjectGroup={selectedObjectGroup} />
     );
-    // } else if (activeTab === "fav") {
-    //   renderedComponent = (
-    //     <Fav brandcode={brandcode} selectedObjectGroup={selectedObjectGroup} />
-    //   );
-
-    // } else if (activeTab === "alert") {
-    //   renderedComponent = (
-    //     <Alert brandcode={brandcode} selectedObjectGroup={selectedObjectGroup} />
-    //   );
   }
 
   return (

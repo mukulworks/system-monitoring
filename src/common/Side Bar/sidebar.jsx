@@ -15,7 +15,6 @@ const dropdown = {
     borderRadius: "10px",
     margin: "10px",
     marginTop: "5px",
-    
   }),
   placeholder: (provided) => ({
     ...provided,
@@ -31,7 +30,7 @@ const dropdown = {
     borderRadius: "10px",
     marginLeft: "10px",
     background: "none",
-    marginTop: "0px"
+    marginTop: "0px",
   }),
   menuList: (provided) => ({
     ...provided,
@@ -48,9 +47,7 @@ const dropdown = {
     fontWeight: "600",
     borderRadius: "9px",
     marginBottom: "1px",
-    padding:"5px 15px"
-    
-    
+    padding: "5px 15px",
   }),
   singleValue: (provided) => ({
     ...provided,
@@ -66,14 +63,20 @@ const options = [
 
 const Sidebar = () => {
   const [brand, setBrand] = useState("");
+  const [data, setData] = useState(null);
+  const [togglebutton, setTogglebutton] = useState(null);
+  const [menulist, setMenulist] = useState(null);
   const handleSelectChange = (selectedOption) => {
     const select = selectedOption.label;
     setBrand(select);
   };
-  const [data, setData] = useState(null);
-  const [togglebutton, setTogglebutton] = useState(null);
+
   const handleDataChange = (newData) => {
     setData(newData);
+  };
+
+  const handlemenulist = (menu) => {
+    setMenulist(menu);
   };
   const handlebutton = (button) => {
     setTogglebutton(button);
@@ -92,17 +95,18 @@ const Sidebar = () => {
             brand={brand}
             onDataChange={handleDataChange}
             button={togglebutton}
+            menulist={handlemenulist}
           />
           {togglebutton && (
             <a href="">
               <div className="favourite_tx">
-                <p>
+                {/* <p>
                   <img
                     src="public/images/Icon_awesome_White_star.png"
                     alt=""
                   ></img>{" "}
                   Favourite
-                </p>
+                </p> */}
               </div>
             </a>
           )}
@@ -114,6 +118,7 @@ const Sidebar = () => {
             brandcode={brand}
             selectedObjectGroup={data}
             togglebutton={handlebutton}
+            menulist={menulist}
           />
         </div>
       </div>

@@ -115,14 +115,14 @@ const Cardobject = ({ brandcode, selectedObjectGroup }) => {
               <div className="typename">
                 {item1.objectTypeName}
 
-                <span className="star1">
+                {/* <span className="star1">
                   <a href="">
                     <img
                       src="public/images/Icon-awesome-stroke-star.png"
                       alt=""
                     ></img>
                   </a>
-                </span>
+                </span> */}
               </div>
               <hr className="lin4"></hr>
               {item1.objectDescList.map((item2) => (
