@@ -66,16 +66,34 @@ const Boxobject = ({ brandcode, selectedObjectGroup }) => {
       item.objectTypeList.flatMap((item1, index) =>
         item1.objectDescList.flatMap((item2, index2) =>
           item2.dashboardObjectList.map((item3) =>
-            fetchData(index, index2, item3.objectId, item3.objectQuery)
+            fetchDatas(index, index2, item3.objectId, item3.objectQuery)
           )
         )
       )
     );
+
+    const refreshInterval =
+      object[0]?.objectTypeList[0]?.objectDescList[0]?.refreshIntervals;
+
+    const intervalId = setInterval(() => {
+      object.flatMap((item) =>
+        item.objectTypeList.flatMap((item1, index) =>
+          item1.objectDescList.flatMap((item2, index2) =>
+            item2.dashboardObjectList.map((item3) =>
+              fetchDatas(index, index2, item3.objectId, item3.objectQuery)
+            )
+          )
+        )
+      );
+    }, refreshInterval * 1000);
+
+    return () => clearInterval(intervalId);
+
   }, [brandcodeState, selectedObjectGroupState]);
 
-  const fetchData = (index, index2, objectId, objectQuery) => {
+  const fetchDatas = async(index, index2, objectId, objectQuery) => {
     try {
-      const count = axios.post(
+      const count =await axios.post(
         api_query,
         query_parameters(objectId, objectQuery),
         { headers: api_header }
